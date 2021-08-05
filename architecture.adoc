@@ -1,56 +1,65 @@
-= Old Dominion University (ODU) & Coast Guard Academy (CGA) CubeSat Misssion Concept of Operations (ConOps)
+= SeaLion Mission Concept of Operations (ConOps)
 :revnumber: v0.1.0
 :toc: left
 
+ifndef::backend-pdf[]
+image:https://img.shields.io/badge/License-MIT-yellow.svg[MIT License, link=https://opensource.org/licenses/MIT]
+image:https://img.shields.io/badge/Contribute%20on-GitHub-orange[Contribute on GitHub, link=https://github.com/ODU-CGA-CubeSat/mission-conops.git]
+image:https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square[PRs Welcome, link=http://makeapullrequest.com]
+image:https://img.shields.io/badge/Download%20-PDF-blue[Download PDF, link=https://ODU-CGA-CubeSat.github.io/mission-conops/mission-conops.pdf]
+endif::[]
+
+<<<
+
 == Stakeholder Needs
  
-The Old Dominion University (ODU) & Coast Guard Academy (CGA) CubeSat Misssion Concept of Operations (ConOps) is guided by a series of stakeholder needs, listed below.
+The SeaLion Mission Concept of Operations (ConOps) is guided by a series of stakeholder needs, listed below.
 
 
 .Stakeholder Need 1.1: Primary Mission Objective 1/2
 ****
-The ODU/CGA CubeSat mission shall establish UHF communication link with Virginia ground station
+The SeaLion mission shall establish UHF communication link with Virginia ground station
 **** 
 
-.Stakeholder Need 1.1: Primary Mission Objective 2/2
+.Stakeholder Need 1.2: Primary Mission Objective 2/2
 ****
-The ODU/CGA CubeSat mission shall establish S-Band communication link with MC3 ground station
+The SeaLion mission shall establish S-Band communication link with MC3 ground station
 **** 
 
 .Stakeholder Need 2.1: Secondary Mission Objective 1/3
 ****
-The ODU/CGA CubeSat missino shall provide a means to validate an impedance probe in-orbit
+The SeaLion mission shall provide a means to validate an impedance probe in-orbit
 **** 
 
 .Stakeholder Need 2.2: Secondary Mission Objective 2/3
 ****
-The ODU/CGA CubeSat mission shall provide a means to validate a V-Infrared Sensor (VIR-S) in-orbit
+The SeaLion mission shall provide a means to validate a V-Infrared Sensor (VIR-S) in-orbit
 **** 
 
 .Stakeholder Need 2.3: Secondary Mission Objective 3/3
 ****
-The ODU/CGA CubeSat mission shall provide a means to validate a deployable composite structure (DeCS) in-orbit
+The SeaLion mission shall provide a means to validate a deployable composite structure (DeCS) in-orbit
 **** 
 
 .Stakeholder Need 3.1: Tertiary Mission Objective 1/3
 ****
-The ODU/CGA CubeSat mission shall qualify a newly developed antenna
+The SeaLion mission shall qualify a newly developed antenna
 **** 
 
 .Stakeholder Need 3.2: Tertiary Mission Objective 2/3
 ****
-The ODU/CGA CubeSat mission shall qualify a CubeSat bus architecture for very-low Earth orbit (VLEO)
+The SeaLion mission shall qualify a CubeSat bus architecture for very-low Earth orbit (VLEO)
 **** 
 
 .Stakeholder Need 3.3: Tertiary Mission Objective 3/3
 ****
-The ODU/CGA CubeSat shall verify DeCS in-orbit behavior performance via accelerometer & temperature sensor data
+The SeaLion shall verify DeCS in-orbit behavior performance via accelerometer & temperature sensor data
 **** 
 
 
 == User Stories
 
-The Old Dominion University (ODU) & Coast Guard Academy (CGA) CubeSat Misssion Concept of Operations (ConOps)'s stakeholder needs are then used to identify a series of user stories which then lead to design decisions captured in data structure and activity definitions.
+The SeaLion Mission Concept of Operations (ConOps)'s stakeholder needs are then used to identify a series of user stories which then lead to design decisions captured in data structure and activity definitions.
 
 
 
