@@ -5,7 +5,6 @@
 ifndef::backend-pdf[]
 image:https://img.shields.io/badge/License-MIT-yellow.svg[MIT License, link=https://opensource.org/licenses/MIT]
 image:https://img.shields.io/badge/Contribute%20on-GitHub-orange[Contribute on GitHub, link=https://github.com/ODU-CGA-CubeSat/mission-conops.git]
-image:https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square[PRs Welcome, link=http://makeapullrequest.com]
 image:https://img.shields.io/badge/Download%20-PDF-blue[Download PDF, link=https://ODU-CGA-CubeSat.github.io/mission-conops/mission-conops.pdf]
 endif::[]
 
@@ -78,7 +77,20 @@ The SeaLion Mission Concept of Operations (ConOps)'s stakeholder needs are then 
 As a *Ground Station Operator* I want to *Ping satellite* so that I can *Establish communication link with satellite*.
 ****
 
-*Example:* Ping the satellite in order to establish UHF communication link with Virginia ground station
+==== Example:
+
+Ping the satellite in order to establish UHF communication link with Virginia ground station
+
+
+==== *Derived From:*
+
+
+
+
+* Primary Mission Objective A1
+
+
+
 
 
 
