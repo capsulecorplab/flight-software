@@ -90,6 +90,41 @@ elements:
     example: >-
       Ping the satellite in order to establish UHF communication link with
       Virginia ground station
+  2-UserStories/2-ViewSatelliteHealthDataPacket.yml: &ref_15
+    id: 2
+    name: View Satellite Health Data Packet
+    actor: Ground Station Operator
+    behavior: View satellite health data packet
+    rationale: Validate that satellite is operating nominally
+    derivedFrom:
+      - 1-StakeholderNeeds/1.2-Primary_Mission_Objective-A2.yml
+      - 1-StakeholderNeeds/1.3-Primary_Mission_Objective-A3.yml
+      - 1-StakeholderNeeds/3.3-Tertiary_Mission_Objective-C3.yml
+    example: >-
+      View satellite satellite health data packet in order to validate the
+      mission data of the IP and DeCS payloads
+  2-UserStories/2.1-QuerySatelliteHealthDataPacket.yml: &ref_16
+    id: 2.1
+    name: Query Satellite Health Data Packet
+    actor: Ground Station Operator
+    behavior: Send satellite health data packet downlink command
+    rationale: Request satellite health data packet
+    derivedFrom:
+      - 2-ViewSatelliteHealthDataPacket.yml
+    example: >-
+      Send satellite health data packet downlink command in order to aquire
+      satellite health data packet downlink
+  2-UserStories/2.2-ListenForSatelliteBeacon.yml: &ref_17
+    id: 2.2
+    name: Listen for Satellite Beacon
+    actor: Ground Station Operator
+    behavior: Open ground station beacon monitor
+    rationale: View satellite health data packet
+    derivedFrom:
+      - 2-ViewSatelliteHealthDataPacket.yml
+    example: >-
+      Open ground station beacon monitor to listen for satellite health data
+      packet downlink
 package:
   name: sealion
   version: 0.4.0
@@ -106,7 +141,7 @@ package:
     js-yaml: ^3.12.0
     liquidjs: ^6.1.1
     minimist: ^1.2.0
-generationDate: 9/1/2021
+generationDate: 9/2/2021
 0-References:
   - *ref_0
   - *ref_1
@@ -125,3 +160,6 @@ generationDate: 9/1/2021
   - *ref_13
 2-UserStories:
   - *ref_14
+  - *ref_15
+  - *ref_16
+  - *ref_17

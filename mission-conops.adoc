@@ -93,4 +93,76 @@ Ping the satellite in order to establish UHF communication link with Virginia gr
 
 
 
+=== User Story 2: View Satellite Health Data Packet
+
+****
+As a *Ground Station Operator* I want to *View satellite health data packet* so that I can *Validate that satellite is operating nominally*.
+****
+
+==== Example:
+
+View satellite satellite health data packet in order to validate the mission data of the IP and DeCS payloads
+
+
+==== *Derived From:*
+
+
+
+
+* Primary Mission Objective A2
+
+
+
+
+* Primary Mission Objective A3
+
+
+
+
+* Tertiary Mission Objective C3
+
+
+
+
+
+=== User Story 2.1: Query Satellite Health Data Packet
+
+****
+As a *Ground Station Operator* I want to *Send satellite health data packet downlink command* so that I can *Request satellite health data packet*.
+****
+
+==== Example:
+
+Send satellite health data packet downlink command in order to aquire satellite health data packet downlink
+
+
+==== *Derived From:*
+
+
+
+
+
+
+
+
+=== User Story 2.2: Listen for Satellite Beacon
+
+****
+As a *Ground Station Operator* I want to *Open ground station beacon monitor* so that I can *View satellite health data packet*.
+****
+
+==== Example:
+
+Open ground station beacon monitor to listen for satellite health data packet downlink
+
+
+==== *Derived From:*
+
+
+
+
+
+
+
+
 
