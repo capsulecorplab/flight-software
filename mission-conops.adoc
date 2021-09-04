@@ -209,6 +209,13 @@ Open ground station beacon monitor to listen for satellite health data packet do
 
 
 
+==== User stories as Use Case Diagram
+
+[plantuml, use-case-diagram, svg]
+....
+include::./use-case-diagram.puml[User Stories as Use Case Diagram]
+....
+
 == Data Structures
 This section covers each data structure type in the *SeaLion Mission Concept of Operations (ConOps)*.
 
