@@ -1,6 +1,7 @@
 = Flight Software Systems Architecture for the Sealion Mission
 :presentation_title: Flight Software Systems Architecture for the Sealion Mission
-:revnumber: v3.0.1
+
+v3.0.1
 
 by Sean Marquez, Kevin Chiu, Payal Nandi, Bhagatji Jimesh, Patrick Clark, & Robert Borowicz
 
@@ -218,8 +219,7 @@ This section covers each data structure type in the *{presentation_title}*.
 === Satellite Health Data Packet
 *Purpose:* Data structure for satellite health data packet from ground station operator's viewpoint.
 
-.Satellite Health Data Packet Template
-[%autofit]
+=== Satellite Health Data Packet Template
 ----
 imu_gyro_x: {{imu_gyro_x}}
 imu_gyro_y: {{imu_gyro_y}}
@@ -244,7 +244,7 @@ longitude: {{longitude}}
 
 ----
 
-.Satellite Health Data Packet Specification
+=== Satellite Health Data Packet Specification
 |===
 |Field |Type |Item Type |Description |Source
 
@@ -483,3 +483,10 @@ longitude: {{longitude}}
 
 
 
+
+== Finite State Machine
+
+[plantuml, fsm, svg]
+....
+include::./operating-mode-as-fsm.puml[Finite State Machine]
+....

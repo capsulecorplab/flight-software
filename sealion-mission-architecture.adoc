@@ -240,6 +240,7 @@ longitude: {{longitude}}
 ----
 
 .Satellite Health Data Packet Specification
+[cols="1,1,1,5,1"]
 |===
 |Field |Type |Item Type |Description |Source
 
