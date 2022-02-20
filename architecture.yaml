@@ -1,161 +1,680 @@
 elements:
-  0-References/1-AX.25_Specification.yml: &ref_0
+  0-References/1-AX.25Specification.yaml: &ref_0
     title: AX.25 Link Access Protocol for Amateur Packet Radio Version 2.2
     url: http://www.tapr.org/pdf/AX25.2.2.pdf
-  0-References/2-CubeSat_Design_Specification_Rev._13.yml: &ref_1
+  0-References/2-CubeSatDesignSpecificationRev.13.yaml: &ref_1
     title: CubeSat Design Specification Rev. 13
     url: https://www.cubesat.org/s/cds_rev13_final2.pdf
-  0-References/3-PlanetarySystemsCorporationCubeSatDesignSpecificationfor3U-6U-12U.yml: &ref_2
+  0-References/3-PlanetarySystemsCorporationCubeSatDesignSpecificationfor3U-6U-12U.yaml: &ref_2
     title: Planetary Systems Corporation CubeSat Design Specification for 3U-6U-12U
     url: >-
       https://www.planetarysystemscorp.com/wp-content/uploads/2018/08/2002367F-Payload-Spec-for-3U-6U-12U.pdf
-  0-References/4-DeploymentMechanismForSmallSatellite.yml: &ref_3
+  0-References/4-DeploymentMechanismForSmallSatellite.yaml: &ref_3
     title: Canisterized Satellite Dispenser
     url: >-
       https://www.planetarysystemscorp.com/wp-content/uploads/2014/07/2002337F-CSD-Data-Sheet.pdf
-  0-References/5-ITAR_Compliance.yml: &ref_4
+  0-References/5-ITARCompliance.yaml: &ref_4
     title: ITAR Compliance Guide
     url: >-
       https://research.mit.edu/integrity-and-compliance/export-control/information-documents/my-satellite-itar-or-ear
-  1-StakeholderNeeds/1.1-Primary_Mission_Objective-A1.yml: &ref_5
+  0-References/6-SpaceSystemsEngineering.yaml: &ref_5
+    title: Space Systems Engineering 4th Ed.
+    url: >-
+      https://www.wiley.com/en-us/Spacecraft+Systems+Engineering%2C+4th+Edition-p-9780470750124
+  0-References/7-GroundDataSystems&MissionOperations.yaml: &ref_6
+    title: Ground Data Systems & Mission Operations
+    url: >-
+      https://www.nasa.gov/smallsat-institute/sst-soa-2020/ground-data-systems-and-mission-operations
+  0-References/8-TwoLineElementData.yaml: &ref_7
+    title: Two-Line Element Data
+    url: https://www.celestrak.com/NORAD/documentation/tle-fmt.php
+  1-StakeholderNeeds/1.1-PrimaryMissionObjective-A1.yaml: &ref_8
     id: 1.1
     name: Primary Mission Objective A1
     statement: >-
       The SeaLion mission shall establish UHF communication link with Virginia
       ground station
     derivedFrom: []
-  1-StakeholderNeeds/1.2-Primary_Mission_Objective-A2.yml: &ref_6
+  1-StakeholderNeeds/1.2-PrimaryMissionObjective-A2.yaml: &ref_9
     id: 1.2
     name: Primary Mission Objective A2
     statement: >-
       The SeaLion mission shall establish S-Band communication link with MC3
       ground station
     derivedFrom: []
-  1-StakeholderNeeds/1.3-Primary_Mission_Objective-A3.yml: &ref_7
+  1-StakeholderNeeds/1.3-PrimaryMissionObjective-A3.yaml: &ref_10
     id: 1.3
     name: Primary Mission Objective A3
     statement: >-
       The SeaLion mission shall successfully transmit “mission data” defined
       above to ground stations on the Earth.
     derivedFrom: []
-  1-StakeholderNeeds/1.4-Primary_Mission_Objective-A4.yml: &ref_8
+  1-StakeholderNeeds/1.4-PrimaryMissionObjective-A4.yaml: &ref_11
     id: 1.4
     name: Primary Mission Objective A4
     statement: The SeaLion mission shall adhere to CubeSat standards as per CDS Rev. 13
-    derivedFrom: 0-References/2-CubeSat_Design_Specification_Rev._13.yml
-  1-StakeholderNeeds/2.1-Secondary_Mission_Objective-B1.yml: &ref_9
+    derivedFrom: 0-References/2-CubeSatDesignSpecificationRev.13.yaml
+  1-StakeholderNeeds/1.5-PrimaryMissionObjective-A5.yaml: &ref_12
+    id: 1.5
+    name: Primary Mission Objective A5
+    statement: >-
+      The SeaLion mission shall validate the operation of the Impedance Probe
+      (IP) as a primary payload in-orbit.
+    derivedFrom: []
+  1-StakeholderNeeds/2.2-SecondaryMissionObjective-B1.yaml: &ref_13
     id: 2.1
     name: Secondary Mission Objective B1
     statement: >-
-      The SeaLion mission shall provide a means to validate an impedance probe
-      in-orbit
+      The SeaLion mission shall provide a means to validate a Multi-spectral
+      Sensor (Ms-S) in-orbit
     derivedFrom: []
-  1-StakeholderNeeds/2.2-Secondary_Mission_Objective-B2.yml: &ref_10
+  1-StakeholderNeeds/2.3-SecondaryMissionObjective-B2.yaml: &ref_14
     id: 2.2
     name: Secondary Mission Objective B2
-    statement: >-
-      The SeaLion mission shall provide a means to validate a V-Infrared Sensor
-      (VIR-S) in-orbit
-    derivedFrom: []
-  1-StakeholderNeeds/2.3-Secondary_Mission_Objective-B3.yml: &ref_11
-    id: 2.3
-    name: Secondary Mission Objective B3
     statement: >-
       The SeaLion mission shall provide a means to validate a deployable
       composite structure (DeCS) in-orbit
     derivedFrom: []
-  1-StakeholderNeeds/3.1-Tertiary_Mission_Objective-C1.yml: &ref_12
+  1-StakeholderNeeds/3.1-TertiaryMissionObjective-C1.yaml: &ref_15
     id: 3.1
     name: Tertiary Mission Objective C1
-    statement: The SeaLion mission shall qualify a newly developed antenna
+    statement: >-
+      The SeaLion mission shall qualify on-orbit the deployment and functioning
+      of the newly developed UHF antenna system and its deployment.
     derivedFrom: []
-  1-StakeholderNeeds/3.2-Tertiary_Mission_Objective-C2.yml: &ref_13
+  1-StakeholderNeeds/3.2-TertiaryMissionObjective-C2.yaml: &ref_16
     id: 3.2
     name: Tertiary Mission Objective C2
     statement: >-
       The SeaLion mission shall qualify a CubeSat bus architecture for very-low
       Earth orbit (VLEO)
     derivedFrom: []
-  1-StakeholderNeeds/3.3-Tertiary_Mission_Objective-C3.yml: &ref_14
+  1-StakeholderNeeds/3.3-TertiaryMissionObjective-C3.yaml: &ref_17
     id: 3.3
     name: Tertiary Mission Objective C3
     statement: >-
       The SeaLion shall verify DeCS in-orbit behavior performance via
       accelerometer & temperature sensor data
     derivedFrom: []
-  2-UserStories/1-PingSatellite.yml: &ref_15
+  2-UserStories/1-PingSatellite.yaml: &ref_18
     id: 1
     name: Ping Satellite
     actor: Ground Station Operator
     behavior: Ping satellite
     rationale: Establish communication link with satellite
     derivedFrom:
-      - 1-StakeholderNeeds/1.1-Primary_Mission_Objective-A1.yml
+      - 1-StakeholderNeeds/1.1-PrimaryMissionObjective-A1.yaml
     example: >-
       Ping the satellite in order to establish UHF communication link with
       Virginia ground station
-  2-UserStories/2-ViewSatelliteHealthDataPacket.yml: &ref_16
+  2-UserStories/2-ViewSatelliteHealthDataPacket.yaml: &ref_19
     id: 2
     name: View Satellite Health Data Packet
     actor: Ground Station Operator
     behavior: View satellite health data packet
     rationale: Validate that satellite is operating nominally
     derivedFrom:
-      - 1-StakeholderNeeds/1.2-Primary_Mission_Objective-A2.yml
-      - 1-StakeholderNeeds/1.3-Primary_Mission_Objective-A3.yml
-      - 1-StakeholderNeeds/3.3-Tertiary_Mission_Objective-C3.yml
+      - 1-StakeholderNeeds/1.2-PrimaryMissionObjective-A2.yaml
+      - 1-StakeholderNeeds/1.3-PrimaryMissionObjective-A3.yaml
+      - 1-StakeholderNeeds/3.3-TertiaryMissionObjective-C3.yaml
     example: >-
-      View satellite satellite health data packet in order to validate the
-      mission data of the IP and DeCS payloads
-  2-UserStories/2.1-QuerySatelliteHealthDataPacket.yml: &ref_17
+      View satellite health data packet in order to validate the mission data of
+      the IP and DeCS payloads
+  2-UserStories/2.1-ListenForSatelliteBeacon.yaml: &ref_20
     id: 2.1
-    name: Query Satellite Health Data Packet
-    actor: Ground Station Operator
-    behavior: Send satellite health data packet downlink command
-    rationale: Request satellite health data packet
-    derivedFrom:
-      - 2-UserStories/2-ViewSatelliteHealthDataPacket.yml
-    example: >-
-      Send satellite health data packet downlink command in order to aquire
-      satellite health data packet downlink
-  2-UserStories/2.2-ListenForSatelliteBeacon.yml: &ref_18
-    id: 2.2
     name: Listen for Satellite Beacon
     actor: Ground Station Operator
     behavior: Open ground station beacon monitor
     rationale: View satellite health data packet
     derivedFrom:
-      - 2-UserStories/2-ViewSatelliteHealthDataPacket.yml
+      - 2-UserStories/2-ViewSatelliteHealthDataPacket.yaml
     example: >-
       Open ground station beacon monitor to listen for satellite health data
       packet downlink
+  2-UserStories/3-UpdateBeaconRate.yaml: &ref_21
+    id: 3
+    name: Update Beacon Rate
+    actor: Ground Station Operator
+    behavior: Update Beacon Rate
+    rationale: Conserve power budget
+    derivedFrom: []
+    example: Update beacon rate to transmit every 30 minutes to conserve power
+  3-DataStructures/1-SatelliteHealth.yaml: &ref_22
+    name: Satellite Health Data Packet
+    purpose: >-
+      Data structure for satellite health data packet from ground station
+      operator's viewpoint.
+    template: |
+      imu_gyro_x: {{imu_gyro_x}}
+      imu_gyro_y: {{imu_gyro_y}}
+      imu_gyro_z: {{imu_gyro_z}}
+      imu_magnetometer_x: {{imu_magnetometer_x}}
+      imu_magnetometer_y: {{imu_magnetometer_y}}
+      imu_magnetometer_z: {{imu_magnetometer_z}}
+      temperature_imu: {{temperature_imu}}
+      temperature_battery: {{temperature_battery}}
+      temperature_on_board_computer: {{temperature_on_board_computer}}
+      temperature_processor: {{temperature_processor}}
+      battery_voltage: {{battery_voltage}}
+      battery_current: {{battery_current}}
+      time_stamp: {{time_stamp}}
+      boot_count: {{boot_count}}
+      boot_time: {{boot_time}}
+      operational_status_of_equipment: {{operational_status_of_equipment}}
+      redundancy_status: {{redundancy_status}}
+      altitude_data: {{altitude_data}}
+      lattitude: {{lattitude}}
+      longitude: {{longitude}}
+    elements:
+      - key: imu_gyro_x
+        type: float
+        itemType: ''
+        description: >-
+          The angular rate of the body with to respective to the x-axis in the
+          IMU's reference frame.
+        derivedFrom: ''
+      - key: imu_gyro_y
+        type: float
+        itemType: ''
+        description: >-
+          The angular rate of the body with to respective to the y-axis in the
+          IMU's reference frame.
+        derivedFrom: ''
+      - key: imu_gyro_z
+        type: float
+        itemType: ''
+        description: >-
+          The angular rate of the body with to respective to the z-axis in the
+          IMU's reference frame.
+        derivedFrom: ''
+      - key: imu_magnetometer_x
+        type: float
+        itemType: ''
+        description: >-
+          The magnetic field strength with respective to the x-axis in the IMU's
+          reference frame.
+        derivedFrom: ''
+      - key: imu_magnetometer_y
+        type: float
+        itemType: ''
+        description: >-
+          The magnetic field strength with respective to the y-axis in the IMU's
+          reference frame.
+        derivedFrom: ''
+      - key: imu_magnetometer_z
+        type: float
+        itemType: ''
+        description: >-
+          The magnetic field strength with respective to the z-axis in the IMU's
+          reference frame.
+        derivedFrom: ''
+      - key: battery_voltage
+        type: float
+        itemType: ''
+        description: Voltage of the battery. Units in volts.
+        derivedFrom: ''
+      - key: battery_current
+        type: float
+        itemType: ''
+        description: Current draw of the battery. Units in milliamps.
+        derivedFrom: ''
+      - key: temperature_imu
+        type: float
+        itemType: ''
+        description: The temperature of the IMU. Units in Kelvin.
+        derivedFrom: ''
+      - key: temperature_battery
+        type: float
+        itemType: ''
+        description: The temperature of the battery. Units in Kelvin.
+        derivedFrom: ''
+      - key: temperature_on_board_computer
+        type: float
+        itemType: ''
+        description: The temperature of the on board computer. Untis in Kelvin.
+        derivedFrom: ''
+      - key: temperature_processor
+        type: float
+        itemType: ''
+        description: The temperature of the processor. Units in Kelvin.
+        derivedFrom: ''
+      - key: time_stamp
+        type: string
+        itemType: ''
+        description: Time stamp of the last transmission.
+        derivedFrom: ''
+      - key: boot_count
+        type: integer
+        itemType: ''
+        description: Number of times the computer has rebooted.
+        derivedFrom: ''
+      - key: boot_time
+        type: string
+        itemType: ''
+        description: The time stamp when the computer last booted.
+        derivedFrom: ''
+      - key: operational_status_of_equipment
+        type: string
+        itemType: ''
+        description: The operation status of the equipment.
+        derivedFrom: ''
+      - key: redundancy_status
+        type: string
+        itemType: ''
+        description: The redundancy status of the satellite.
+        derivedFrom: ''
+      - key: altitude_data
+        type: float
+        itemType: ''
+        description: The altitude data of the satellite.
+        derivedFrom: ''
+      - key: lattitude
+        type: float
+        itemType: ''
+        description: Lattitude coordinate of the satellite.
+        derivedFrom: ''
+      - key: longitude
+        type: float
+        itemType: ''
+        description: Longitude coordinate of the satellite.
+        derivedFrom: ''
+    derivedFrom:
+      - 2-UserStories/2-ViewSatelliteHealthDataPacket.yaml
+  4-Components/component.yaml: &ref_23
+    name: sealion-mission-architecture
+    version: 3.0.1
+    description: SeaLion Mission Architecture
+    license: MIT
+    author: Sean Marquez <capsulecorplab@gmail.com> & contributors
+    repository: https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git
+    dependencies:
+      js-yaml: ^3.12.0
+      liquidjs: ^6.1.1
+      minimist: ^1.2.0
+    components:
+      sealion-cubesat:
+        name: sealion-cubesat
+        version: 0.1.0
+        description: Sealion Cubesat
+        license: MIT
+        author: Kevin Chiu <kchiu002@odu.edu> & contributors
+        repository: https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git
+        dependencies: {}
+        components:
+          sealion-antenna:
+            name: sealion-antenna
+            version: 0.1.0
+            description: Sealion UHF and S-Band antenna
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+          sealion-aods-sensors:
+            name: sealion-aods-sensors
+            version: 0.1.0
+            description: Sealion Attitude & Orbital Determination System (AODS) Sensors
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+          sealion-cga-payload:
+            name: sealion-cga-payload
+            version: 0.1.0
+            description: Sealion U.S. Coast Guard Academy (CGA) Payload
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+          sealion-communication-module:
+            name: sealion-communication-module
+            version: 0.1.0
+            description: Sealion Communication Module
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+          sealion-obc:
+            name: sealion-obc
+            version: 0.1.0
+            description: Sealion On-Board Computer (OBC)
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+          sealion-odu-payload:
+            name: sealion-odu-payload
+            version: 0.1.0
+            description: Sealion Old Dominion University (ODU) Payload
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+          sealion-power-module:
+            name: sealion-power-module
+            version: 0.1.0
+            description: Sealion Power Module
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+          sealion-structure:
+            name: sealion-structure
+            version: 0.1.0
+            description: Sealion Structure
+            license: MIT
+            author: Bhagatji Jimesh jbhag001@odu.edu & contributors
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+        parts:
+          structure:
+            id: structure
+            description: Stucture
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-structure
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'structure: Stucture'
+            descriptionSelected: 'structure: Stucture (Sealion Structure v0.1.0)'
+          power-module:
+            id: power-module
+            description: Power Module
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-power-module
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'power-module: Power Module'
+            descriptionSelected: 'power-module: Power Module (Sealion Power Module v0.1.0)'
+          communication-module:
+            id: communication-module
+            description: Communication Module
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-communication-module
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'communication-module: Communication Module'
+            descriptionSelected: >-
+              communication-module: Communication Module (Sealion Communication
+              Module v0.1.0)
+          obc:
+            id: obc
+            description: OBC
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-obc
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'obc: OBC'
+            descriptionSelected: 'obc: OBC (Sealion On-Board Computer (OBC) v0.1.0)'
+          odu-payload:
+            id: odu-payload
+            description: ODU Payload
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-odu-payload
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'odu-payload: ODU Payload'
+            descriptionSelected: >-
+              odu-payload: ODU Payload (Sealion Old Dominion University (ODU)
+              Payload v0.1.0)
+          cga-payload:
+            id: cga-payload
+            description: CGA Payload
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-cga-payload
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'cga-payload: CGA Payload'
+            descriptionSelected: >-
+              cga-payload: CGA Payload (Sealion U.S. Coast Guard Academy (CGA)
+              Payload v0.1.0)
+          aods-sensors:
+            id: aods-sensors
+            description: AODS Sensors
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-aods-sensors
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'aods-sensors: AODS Sensors'
+            descriptionSelected: >-
+              aods-sensors: AODS Sensors (Sealion Attitude & Orbital
+              Determination System (AODS) Sensors v0.1.0)
+          antenna:
+            id: antenna
+            description: Antenna
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-antenna
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'antenna: Antenna'
+            descriptionSelected: 'antenna: Antenna (Sealion UHF and S-Band antenna v0.1.0)'
+        tools: {}
+      sealion-ground-station:
+        name: sealion-ground-station
+        version: 0.1.0
+        description: Ground Station
+        license: MIT
+        author: Kevin Chiu <kchiu002@odu.edu> & contributors
+        repository: https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git
+        dependencies: {}
+        components:
+          sealion-host-computer:
+            name: sealion-host-computer
+            version: 0.1.0
+            description: SeaLion Host Computer
+            license: MIT
+            author: Patrick Clark <pclar001@odu.edu> & contributors
+            repository: >-
+              https://github.com/ODU-CGA-CubeSat/sealoin-mission-architecture.git
+            dependencies: {}
+            components:
+              dell-optiplex-work-station:
+                name: dell-optiplex-work-station
+                version: 0.1.0
+                description: Dell Optiplex Work Station
+                license: MIT
+                author: Patrick Clark <pclar001@odu.edu> & contributors
+                repository: >-
+                  https://github.com/ODU-CGA-CubeSat/sealoin-mission-architecture.git
+                dependencies: {}
+                components: {}
+                parts: {}
+                tools: {}
+              gnu-radio-software:
+                name: gnu-radio-software
+                version: 0.1.0
+                description: GNU Radio Software
+                license: MIT
+                author: Patrick Clark <pclar001@odu.edu> & contributors
+                repository: >-
+                  https://github.com/ODU-CGA-CubeSat/sealoin-mission-architecture.git
+                dependencies: {}
+                components: {}
+                parts: {}
+                tools: {}
+              ubuntu-20.04-lts-operating-system:
+                name: ubuntu-20.04-lts-operating-system
+                version: 0.1.0
+                description: ubuntu 20.04 LTS Operating System
+                license: MIT
+                author: Patrick Clark <pclar001@odu.edu> & contributors
+                repository: >-
+                  https://github.com/ODU-CGA-CubeSat/sealoin-mission-architecture.git
+                dependencies: {}
+                components: {}
+                parts: {}
+                tools: {}
+            parts:
+              sealion-host-computer:
+                id: sealion-host-computer
+                description: SeaLion Host Computer
+                quantity: 1
+                quantityUnits: unit
+                options:
+                  - dell-optiplex-work-station
+                selectedOption: 0
+                notes: ''
+                descriptionLong: 'sealion-host-computer: SeaLion Host Computer'
+                descriptionSelected: >-
+                  sealion-host-computer: SeaLion Host Computer (Dell Optiplex
+                  Work Station v0.1.0)
+            tools: {}
+          sealion-sdr:
+            name: sealion-sdr
+            version: 0.1.0
+            description: SeaLion SDR
+            license: MIT
+            author: Patrick Clark <pclar001@odu.edu> & contributors
+            repository: >-
+              https://github.com/ODU-CGA-CubeSat/sealoin-mission-architecture.git
+            dependencies: {}
+            components:
+              ettus-usrp-b200:
+                name: ettus-usrp-b200
+                version: 0.1.0
+                description: Ettus USRP B200
+                license: MIT
+                author: Patrick Clark <pclar001@odu.edu> & contributors
+                repository: >-
+                  https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git
+                dependencies: {}
+                components: {}
+                parts: {}
+                tools: {}
+              ettus-usrp-n200:
+                name: ettus-usrp-n200
+                version: 0.1.0
+                description: Ettus USRP N200
+                license: MIT
+                author: Patrick Clark <pclar001@odu.edu> & contributors
+                repository: >-
+                  https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git
+                dependencies: {}
+                components: {}
+                parts: {}
+                tools: {}
+            parts:
+              sdr:
+                id: sdr
+                description: Software Defined Radio
+                quantity: 1
+                quantityUnits: unit
+                options:
+                  - ettus-usrp-b200
+                  - ettus-usrp-n200
+                selectedOption: 0
+                notes: Selection 0 is tentative.
+                descriptionLong: 'sdr: Software Defined Radio'
+                descriptionSelected: 'sdr: Software Defined Radio (Ettus USRP B200 v0.1.0)'
+            tools: {}
+          sealion-transceiver-switch:
+            name: sealion-transceiver-switch
+            version: 0.1.0
+            description: SeaLion Transceiver Switch
+            license: MIT
+            author: Patrick Clark <pclar001@odu.edu> & contributors
+            repository: >-
+              https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git
+            dependencies: {}
+            components: {}
+            parts: {}
+            tools: {}
+        parts:
+          sdr:
+            id: sdr
+            description: SDR
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-sdr
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'sdr: SDR'
+            descriptionSelected: 'sdr: SDR (SeaLion SDR v0.1.0)'
+          host-computer:
+            id: host-computer
+            description: Host Computer
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-host-computer
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'host-computer: Host Computer'
+            descriptionSelected: 'host-computer: Host Computer (SeaLion Host Computer v0.1.0)'
+          transceiver-switch:
+            id: transceiver-switch
+            description: Transceiver Switch
+            quantity: 1
+            quantityUnits: unit
+            options:
+              - sealion-transceiver-switch
+            selectedOption: 0
+            notes: ''
+            descriptionLong: 'transceiver-switch: Transceiver Switch'
+            descriptionSelected: >-
+              transceiver-switch: Transceiver Switch (SeaLion Transceiver Switch
+              v0.1.0)
+        tools: {}
+    parts: {}
+    tools: {}
 package:
-  name: sealion
-  version: 0.4.0
-  description: SeaLion Mission Concept of Operations (ConOps)
+  name: sealion-mission-architecture
+  version: 3.0.1
+  description: SeaLion Mission Architecture
   keywords:
     - cubesat
-    - mission-conops
+    - sealion-mission-architecture
     - model-based-systems-engineering
-  repository: https://github.com/ODU-CGA-CubeSat/mission-conops.git
-  homepage: https://ODU-CGA-CubeSat.github.io/mission-conops
+  repository: https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git
+  homepage: https://ODU-CGA-CubeSat.github.io/sealion-mission-architecture
   author: Sean Marquez <capsulecorplab@gmail.com> & contributors
   license: MIT
   dependencies:
     js-yaml: ^3.12.0
     liquidjs: ^6.1.1
     minimist: ^1.2.0
-generationDate: 9/4/2021
+generationDate: 2/20/2022
 0-References:
   - *ref_0
   - *ref_1
   - *ref_2
   - *ref_3
   - *ref_4
-1-StakeholderNeeds:
   - *ref_5
   - *ref_6
   - *ref_7
+1-StakeholderNeeds:
   - *ref_8
   - *ref_9
   - *ref_10
@@ -163,8 +682,15 @@ generationDate: 9/4/2021
   - *ref_12
   - *ref_13
   - *ref_14
-2-UserStories:
   - *ref_15
   - *ref_16
   - *ref_17
+2-UserStories:
   - *ref_18
+  - *ref_19
+  - *ref_20
+  - *ref_21
+3-DataStructures:
+  - *ref_22
+4-Components:
+  - *ref_23

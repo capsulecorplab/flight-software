@@ -6,7 +6,7 @@ skinparam linetype polyline
 skinparam linetype ortho
 '/
 
-frame "uc [ SeaLion Mission Concept of Operations (ConOps) Use Case Diagram ]" {
+frame "uc [ SeaLion Mission Architecture Use Case Diagram ]" {
 
     rectangle gs as "Ground Station" {
 
@@ -15,9 +15,9 @@ frame "uc [ SeaLion Mission Concept of Operations (ConOps) Use Case Diagram ]" {
         
         (Validate that satellite is operating nominally)
         
-        (Request satellite health data packet)
-        
         (View satellite health data packet)
+        
+        (Conserve power budget)
         
 
     }
@@ -27,9 +27,9 @@ frame "uc [ SeaLion Mission Concept of Operations (ConOps) Use Case Diagram ]" {
     
     :Ground Station Operator: -- (Validate that satellite is operating nominally)
     
-    :Ground Station Operator: -- (Request satellite health data packet)
-    
     :Ground Station Operator: -- (View satellite health data packet)
+    
+    :Ground Station Operator: -- (Conserve power budget)
     
 
 }

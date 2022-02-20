@@ -1,0 +1,480 @@
+= SeaLion Mission Architecture
+:doc-name: sealion-mission-architecture.adoc
+:revnumber: v3.0.1
+:toc: left
+
+ifndef::backend-pdf[]
+image:https://img.shields.io/badge/License-MIT-yellow.svg[MIT License, link=https://opensource.org/licenses/MIT]
+image:https://img.shields.io/badge/Contribute%20on-GitHub-orange[Contribute on GitHub, link=https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git]
+image:https://img.shields.io/badge/Download%20-PDF-blue[Download PDF, link=https://ODU-CGA-CubeSat.github.io/sealion-mission-architecture/sealion-mission-architecture.pdf]
+endif::[]
+
+<<<
+
+== Stakeholder Needs
+ 
+The SeaLion Mission Architecture is guided by a series of stakeholder needs, listed below.
+
+
+=== 1.1: Primary Mission Objective A1
+****
+The SeaLion mission shall establish UHF communication link with Virginia ground station
+**** 
+
+
+
+
+=== 1.2: Primary Mission Objective A2
+****
+The SeaLion mission shall establish S-Band communication link with MC3 ground station
+**** 
+
+
+
+
+=== 1.3: Primary Mission Objective A3
+****
+The SeaLion mission shall successfully transmit “mission data” defined above to ground stations on the Earth.
+**** 
+
+
+
+
+=== 1.4: Primary Mission Objective A4
+****
+The SeaLion mission shall adhere to CubeSat standards as per CDS Rev. 13
+**** 
+
+
+==== *Reference:*
+
+
+
+* https://www.cubesat.org/s/cds_rev13_final2.pdf[CubeSat Design Specification Rev. 13]
+
+
+
+
+
+=== 1.5: Primary Mission Objective A5
+****
+The SeaLion mission shall validate the operation of the Impedance Probe (IP) as a primary payload in-orbit.
+**** 
+
+
+
+
+=== 2.1: Secondary Mission Objective B1
+****
+The SeaLion mission shall provide a means to validate a Multi-spectral Sensor (Ms-S) in-orbit
+**** 
+
+
+
+
+=== 2.2: Secondary Mission Objective B2
+****
+The SeaLion mission shall provide a means to validate a deployable composite structure (DeCS) in-orbit
+**** 
+
+
+
+
+=== 3.1: Tertiary Mission Objective C1
+****
+The SeaLion mission shall qualify on-orbit the deployment and functioning of the newly developed UHF antenna system and its deployment.
+**** 
+
+
+
+
+=== 3.2: Tertiary Mission Objective C2
+****
+The SeaLion mission shall qualify a CubeSat bus architecture for very-low Earth orbit (VLEO)
+**** 
+
+
+
+
+=== 3.3: Tertiary Mission Objective C3
+****
+The SeaLion shall verify DeCS in-orbit behavior performance via accelerometer & temperature sensor data
+**** 
+
+
+
+
+
+== User Stories
+
+The SeaLion Mission Architecture's stakeholder needs are then used to identify a series of user stories which then lead to design decisions captured in data structure and activity definitions.
+
+
+=== 1: Ping Satellite
+
+****
+As a *Ground Station Operator* I want to *Ping satellite* so that I can *Establish communication link with satellite*.
+****
+
+==== Example:
+
+Ping the satellite in order to establish UHF communication link with Virginia ground station
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
+
+
+
+
+
+=== 2: View Satellite Health Data Packet
+
+****
+As a *Ground Station Operator* I want to *View satellite health data packet* so that I can *Validate that satellite is operating nominally*.
+****
+
+==== Example:
+
+View satellite health data packet in order to validate the mission data of the IP and DeCS payloads
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_1_2_primary_mission_objective_a2[Primary Mission Objective A2]
+
+
+
+
+* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
+
+
+
+
+* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
+
+
+
+
+
+=== 2.1: Listen for Satellite Beacon
+
+****
+As a *Ground Station Operator* I want to *Open ground station beacon monitor* so that I can *View satellite health data packet*.
+****
+
+==== Example:
+
+Open ground station beacon monitor to listen for satellite health data packet downlink
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+
+
+
+
+
+=== 3: Update Beacon Rate
+
+****
+As a *Ground Station Operator* I want to *Update Beacon Rate* so that I can *Conserve power budget*.
+****
+
+==== Example:
+
+Update beacon rate to transmit every 30 minutes to conserve power
+
+
+
+
+
+=== User stories as Use Case Diagram
+
+[plantuml, use-case-diagram, svg]
+....
+include::./use-case-diagram.puml[User Stories as Use Case Diagram]
+....
+
+== Data Structures
+This section covers each data structure type in the *SeaLion Mission Architecture*.
+
+
+=== Satellite Health Data Packet
+*Purpose:* Data structure for satellite health data packet from ground station operator's viewpoint.
+
+.Satellite Health Data Packet Template
+----
+imu_gyro_x: {{imu_gyro_x}}
+imu_gyro_y: {{imu_gyro_y}}
+imu_gyro_z: {{imu_gyro_z}}
+imu_magnetometer_x: {{imu_magnetometer_x}}
+imu_magnetometer_y: {{imu_magnetometer_y}}
+imu_magnetometer_z: {{imu_magnetometer_z}}
+temperature_imu: {{temperature_imu}}
+temperature_battery: {{temperature_battery}}
+temperature_on_board_computer: {{temperature_on_board_computer}}
+temperature_processor: {{temperature_processor}}
+battery_voltage: {{battery_voltage}}
+battery_current: {{battery_current}}
+time_stamp: {{time_stamp}}
+boot_count: {{boot_count}}
+boot_time: {{boot_time}}
+operational_status_of_equipment: {{operational_status_of_equipment}}
+redundancy_status: {{redundancy_status}}
+altitude_data: {{altitude_data}}
+lattitude: {{lattitude}}
+longitude: {{longitude}}
+
+----
+
+.Satellite Health Data Packet Specification
+|===
+|Field |Type |Item Type |Description |Source
+
+
+|imu_gyro_x
+|float
+
+|
+
+|The angular rate of the body with to respective to the x-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_gyro_y
+|float
+
+|
+
+|The angular rate of the body with to respective to the y-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_gyro_z
+|float
+
+|
+
+|The angular rate of the body with to respective to the z-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_magnetometer_x
+|float
+
+|
+
+|The magnetic field strength with respective to the x-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_magnetometer_y
+|float
+
+|
+
+|The magnetic field strength with respective to the y-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_magnetometer_z
+|float
+
+|
+
+|The magnetic field strength with respective to the z-axis in the IMU's reference frame.
+
+|
+
+
+
+|battery_voltage
+|float
+
+|
+
+|Voltage of the battery. Units in volts.
+
+|
+
+
+
+|battery_current
+|float
+
+|
+
+|Current draw of the battery. Units in milliamps.
+
+|
+
+
+
+|temperature_imu
+|float
+
+|
+
+|The temperature of the IMU. Units in Kelvin.
+
+|
+
+
+
+|temperature_battery
+|float
+
+|
+
+|The temperature of the battery. Units in Kelvin.
+
+|
+
+
+
+|temperature_on_board_computer
+|float
+
+|
+
+|The temperature of the on board computer. Untis in Kelvin.
+
+|
+
+
+
+|temperature_processor
+|float
+
+|
+
+|The temperature of the processor. Units in Kelvin.
+
+|
+
+
+
+|time_stamp
+|string
+
+|
+
+|Time stamp of the last transmission.
+
+|
+
+
+
+|boot_count
+|integer
+
+|
+
+|Number of times the computer has rebooted.
+
+|
+
+
+
+|boot_time
+|string
+
+|
+
+|The time stamp when the computer last booted.
+
+|
+
+
+
+|operational_status_of_equipment
+|string
+
+|
+
+|The operation status of the equipment.
+
+|
+
+
+
+|redundancy_status
+|string
+
+|
+
+|The redundancy status of the satellite.
+
+|
+
+
+
+|altitude_data
+|float
+
+|
+
+|The altitude data of the satellite.
+
+|
+
+
+
+|lattitude
+|float
+
+|
+
+|Lattitude coordinate of the satellite.
+
+|
+
+
+
+|longitude
+|float
+
+|
+
+|Longitude coordinate of the satellite.
+
+|
+
+
+
+|===
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+
+
+
+
+

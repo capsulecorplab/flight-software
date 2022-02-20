@@ -24,10 +24,10 @@ header:
   recto:
     left:
       content: |
-        *SeaLion Mission Concept of Operations (ConOps)* +
+        *SeaLion Mission Architecture* +
     right:
       content: |
-        *v0.4.0*
+        *v3.0.1*
   verso:
     left:
       content: $header-recto-left-content
