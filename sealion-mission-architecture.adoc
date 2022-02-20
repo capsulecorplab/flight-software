@@ -1,5 +1,4 @@
 = SeaLion Mission Architecture
-:doc-name: sealion-mission-architecture.adoc
 :revnumber: v3.0.1
 :toc: left
 
@@ -7,6 +6,7 @@ ifndef::backend-pdf[]
 image:https://img.shields.io/badge/License-MIT-yellow.svg[MIT License, link=https://opensource.org/licenses/MIT]
 image:https://img.shields.io/badge/Contribute%20on-GitHub-orange[Contribute on GitHub, link=https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture.git]
 image:https://img.shields.io/badge/Download%20-PDF-blue[Download PDF, link=https://ODU-CGA-CubeSat.github.io/sealion-mission-architecture/sealion-mission-architecture.pdf]
+image:https://img.shields.io/badge/View%20-Presentation-green[Download PDF, link=https://ODU-CGA-CubeSat.github.io/sealion-mission-architecture/presentation.html]
 endif::[]
 
 <<<
