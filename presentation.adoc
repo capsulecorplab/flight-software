@@ -1,11 +1,19 @@
-= SeaLion Mission Architecture
+= Flight Software Systems Architecture for the Sealion Mission
+:presentation_title: Flight Software Systems Architecture for the Sealion Mission
 :revnumber: v3.0.1
 
 by Sean Marquez, Kevin Chiu, Payal Nandi, Bhagatji Jimesh, Patrick Clark, & Robert Borowicz
 
+== Design Philosophy
+
+The {presentation_title} follows a https://www.writethedocs.org/guide/docs-as-code/[docs-as-code] & https://www.writethedocs.org/videos/portland/2019/lessons-learned-in-a-year-of-docs-driven-development-jessica-parsons/[docs-driven development] approach, as to ensure:
+
+* Documentation and development are tightly coupled
+* No requirement or feature goes undocumented.
+
 == Stakeholder Needs
  
-The SeaLion Mission Architecture is guided by a series of stakeholder needs...
+The {presentation_title} is guided by a series of stakeholder needs...
 
 
 === 1.1: Primary Mission Objective A1
@@ -99,7 +107,7 @@ The SeaLion shall verify DeCS in-orbit behavior performance via accelerometer & 
 
 == User Stories
 
-The SeaLion Mission Architecture's stakeholder needs are then used to identify a series of user stories which then lead to design decisions captured in data structure and activity definitions.
+The {presentation_title}'s stakeholder needs are then used to identify a series of user stories which then lead to design decisions captured in data structure and activity definitions.
 
 
 === 1: Ping Satellite
@@ -200,7 +208,7 @@ include::./use-case-diagram.puml[User Stories as Use Case Diagram]
 ....
 
 == Data Structures
-This section covers each data structure type in the *SeaLion Mission Architecture*.
+This section covers each data structure type in the *{presentation_title}*.
 
 
 === Satellite Health Data Packet
