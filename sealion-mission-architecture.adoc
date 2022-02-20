@@ -479,3 +479,10 @@ longitude: {{longitude}}
 
 
 
+
+== Finite State Machine
+
+[plantuml, fsm, svg]
+....
+include::./operating-mode-as-fsm.puml[Finite State Machine]
+....
