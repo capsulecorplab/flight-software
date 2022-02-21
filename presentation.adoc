@@ -3,7 +3,7 @@
 
 v3.0.1
 
-by Sean Marquez, Kevin Chiu, Payal Nandi, Bhagatji Jimesh, Patrick Clark, & Robert Borowicz
+by Robert Borowicz, Patrick Clark, Kevin Chiu, Gonzalo Fernandez Mediavilla, Bhagatji Jimesh, Sean Marquez, Payal Nandi, Joseph Siciliano, & Gus Williams
 
 == Homepage
 
@@ -140,31 +140,12 @@ Ping the satellite in order to establish UHF communication link with Virginia gr
 === 2: View Satellite Health Data Packet
 
 ****
-As a *Ground Station Operator* I want to *View satellite health data packet* so that I can *Validate that satellite is operating nominally*.
+As a *Ground Station Operator* I want to *view satellite health data packet* so that I can *validate that satellite is operating nominally*.
 ****
 
 ==== Example:
 
-View satellite health data packet in order to validate the mission data of the IP and DeCS payloads
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_1_2_primary_mission_objective_a2[Primary Mission Objective A2]
-
-
-
-
-* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
-
-
-
-
-* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
-
+View satellite health data packet to verify or validate AODS sensor & GPS data is within nominal range and/or corresponds to expected orbit profile
 
 
 
@@ -204,6 +185,63 @@ Update beacon rate to transmit every 30 minutes to conserve power
 
 
 
+=== 4: Request Telemetry Data
+
+****
+As a *Ground Station Operator* I want to *Request satellite telemetry data packets* so that I can *Locally verify/validate onboard AODS computations*.
+****
+
+==== Example:
+
+Request satellite telemetry packets for local verification/validation of onboard AODS computations
+
+
+
+
+=== 4.1: Request Satellite Health Data
+
+****
+As a *Ground Station Operator* I want to *request satellite health data packet* so that I can *verify/validate AODS sensors & GPS data are within nominal parameters*.
+****
+
+==== Example:
+
+Request satellite health data packet to verify or validate AODS sensors and GPS data correspond to expected attitude and/or orbit profile based on pre-computed attitude or orbit propagation model
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_4_request_telemetry_data[Request Telemetry Data]
+
+
+
+
+
+=== 4.2: Request Satellite AODS Sensor Data
+
+****
+As a *Ground Station Operator* I want to *request satellite AODS sensor data* so that I can *verify AODS sensor data yields nominal parameters*.
+****
+
+==== Example:
+
+Request satellite AODS sensor data for verifying AODS sensor data corresponds with a known magnetic field, light source, and/or change in orientation w.r.t. satellites body frame of reference
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_4_request_telemetry_data[Request Telemetry Data]
+
+
+
+
+
 
 === User stories as Use Case Diagram
 
@@ -217,9 +255,89 @@ This section covers each data structure type in the *{presentation_title}*.
 
 
 === Satellite Health Data Packet
-*Purpose:* Data structure for satellite health data packet from ground station operator's viewpoint.
+*Purpose:* Data structure for satellite health data packet used for beacon telemetry
 
 === Satellite Health Data Packet Template
+----
+call_sign: {{call_sign}}
+battery_health: {{battery_health}}
+mode: {{mode}}
+tle_data: {{tle_data}}
+
+----
+
+=== Satellite Health Data Packet Specification
+|===
+|Field |Type |Item Type |Description |Source
+
+
+|call_sign
+|string
+
+|
+
+|Identifying call sign for the Sealion mission.
+
+|
+
+
+
+|battery_health
+|float
+
+|
+
+|Percent value indicating the remaining charge of the batteries.
+
+|
+
+
+
+|mode
+|integer
+
+|
+
+|Integer value indicating current mission mode. 0 = Safe, 1 = mission mode 1, 2 = mission mode 2, 3 = mission mode 3.
+
+|
+
+
+
+|tle_data
+|3-DataStructures/4-TLE.yaml
+
+|
+
+|TLE data from orbit propogator at time of beacon.
+
+|
+
+
+
+|===
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+
+
+
+
+* xref:{doc-name}#_4_1_request_satellite_health_data[Request Satellite Health Data]
+
+
+
+
+
+=== Satellite AODS IC Data
+*Purpose:* Data structure for satellite AODS initial conditions data packet used for attitude determination and orbit propagation
+
+=== Satellite AODS IC Data Template
 ----
 imu_gyro_x: {{imu_gyro_x}}
 imu_gyro_y: {{imu_gyro_y}}
@@ -227,24 +345,20 @@ imu_gyro_z: {{imu_gyro_z}}
 imu_magnetometer_x: {{imu_magnetometer_x}}
 imu_magnetometer_y: {{imu_magnetometer_y}}
 imu_magnetometer_z: {{imu_magnetometer_z}}
-temperature_imu: {{temperature_imu}}
-temperature_battery: {{temperature_battery}}
-temperature_on_board_computer: {{temperature_on_board_computer}}
-temperature_processor: {{temperature_processor}}
-battery_voltage: {{battery_voltage}}
-battery_current: {{battery_current}}
+sun_sensor_pitch_pos: {{sun_sensor_pitch_pos}}
+sun_sensor_pitch_neg: {{sun_sensor_pitch_neg}}
+sun_sensor_yaw_pos: {{sun_sensor_yaw_pos}}
+sun_sensor_yaw_neg: {{sun_sensor_yaw_neg}}
+sun_sensor_roll_pos: {{sun_sensor_roll_pos}}
+sun_sensor_roll_neg: {{sun_sensor_roll_neg}}
 time_stamp: {{time_stamp}}
-boot_count: {{boot_count}}
-boot_time: {{boot_time}}
-operational_status_of_equipment: {{operational_status_of_equipment}}
-redundancy_status: {{redundancy_status}}
-altitude_data: {{altitude_data}}
-lattitude: {{lattitude}}
-longitude: {{longitude}}
+altitude_data_GPS: {{altitude_data}}
+lattitude_GPS: {{lattitude}}
+longitude_GPS: {{longitude}}
 
 ----
 
-=== Satellite Health Data Packet Specification
+=== Satellite AODS IC Data Specification
 |===
 |Field |Type |Item Type |Description |Source
 
@@ -315,69 +429,81 @@ longitude: {{longitude}}
 
 
 
-|battery_voltage
+|sun_sensor_pitch_pos
 |float
 
 |
 
-|Voltage of the battery. Units in volts.
+|Sun sensor measurement with respect to positive pitch angle.
 
-|
+a|
+* []
 
 
 
-|battery_current
+
+|sun_sensor_pitch_neg
 |float
 
 |
 
-|Current draw of the battery. Units in milliamps.
+|Sun sensor measurement with respect to negative pitch angle.
 
-|
+a|
+* []
 
 
 
-|temperature_imu
+
+|sun_sensor_yaw_pos
 |float
 
 |
 
-|The temperature of the IMU. Units in Kelvin.
+|Sun sensor measurement with respect to positive yaw angle.
 
-|
+a|
+* []
 
 
 
-|temperature_battery
+
+|sun_sensor_yaw_neg
 |float
 
 |
 
-|The temperature of the battery. Units in Kelvin.
+|Sun sensor measurement with respect to negative yaw angle.
 
-|
+a|
+* []
 
 
 
-|temperature_on_board_computer
+
+|sun_sensor_roll_pos
 |float
 
 |
 
-|The temperature of the on board computer. Untis in Kelvin.
+|Sun sensor measurement with respect to positive roll angle.
 
-|
+a|
+* []
 
 
 
-|temperature_processor
+
+|sun_sensor_roll_neg
 |float
 
 |
 
-|The temperature of the processor. Units in Kelvin.
+|Sun sensor measurement with respect to negative roll angle.
 
-|
+a|
+* []
+
 
 
 
@@ -392,78 +518,34 @@ longitude: {{longitude}}
 
 
 
-|boot_count
-|integer
-
-|
-
-|Number of times the computer has rebooted.
-
-|
-
-
-
-|boot_time
-|string
-
-|
-
-|The time stamp when the computer last booted.
-
-|
-
-
-
-|operational_status_of_equipment
-|string
-
-|
-
-|The operation status of the equipment.
-
-|
-
-
-
-|redundancy_status
-|string
-
-|
-
-|The redundancy status of the satellite.
-
-|
-
-
-
-|altitude_data
+|altitude_data_GPS
 |float
 
 |
 
-|The altitude data of the satellite.
+|The altitude data of the satellite from GPS.
 
 |
 
 
 
-|lattitude
+|lattitude_GPS
 |float
 
 |
 
-|Lattitude coordinate of the satellite.
+|Lattitude coordinate of the satellite from GPS.
 
 |
 
 
 
-|longitude
+|longitude_GPS
 |float
 
 |
 
-|Longitude coordinate of the satellite.
+|Longitude coordinate of the satellite from GPS.
 
 |
 
@@ -477,7 +559,593 @@ longitude: {{longitude}}
 
 
 
-* xref:{doc-name}#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+
+
+
+
+=== Satellite AODS Sensor Data
+*Purpose:* Data structure for satellite AODS sensor data used for attitude determination or incremental orbit propogation
+
+=== Satellite AODS Sensor Data Template
+----
+imu_gyro_x: {{imu_gyro_x}}
+imu_gyro_y: {{imu_gyro_y}}
+imu_gyro_z: {{imu_gyro_z}}
+imu_magnetometer_x: {{imu_magnetometer_x}}
+imu_magnetometer_y: {{imu_magnetometer_y}}
+imu_magnetometer_z: {{imu_magnetometer_z}}
+sun_sensor_pitch_pos: {{sun_sensor_pitch_pos}}
+sun_sensor_pitch_neg: {{sun_sensor_pitch_neg}}
+sun_sensor_yaw_pos: {{sun_sensor_yaw_pos}}
+sun_sensor_yaw_neg: {{sun_sensor_yaw_neg}}
+sun_sensor_roll_pos: {{sun_sensor_roll_pos}}
+sun_sensor_roll_neg: {{sun_sensor_roll_neg}}
+time_stamp: {{time_stamp}}
+
+----
+
+=== Satellite AODS Sensor Data Specification
+|===
+|Field |Type |Item Type |Description |Source
+
+
+|imu_gyro_x
+|float
+
+|
+
+|The angular rate of the body with to respective to the x-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_gyro_y
+|float
+
+|
+
+|The angular rate of the body with to respective to the y-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_gyro_z
+|float
+
+|
+
+|The angular rate of the body with to respective to the z-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_magnetometer_x
+|float
+
+|
+
+|The magnetic field strength with respective to the x-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_magnetometer_y
+|float
+
+|
+
+|The magnetic field strength with respective to the y-axis in the IMU's reference frame.
+
+|
+
+
+
+|imu_magnetometer_z
+|float
+
+|
+
+|The magnetic field strength with respective to the z-axis in the IMU's reference frame.
+
+|
+
+
+
+|sun_sensor_pitch_pos
+|float
+
+|
+
+|Sun sensor measurement with respect to positive pitch angle.
+
+a|
+* []
+
+
+
+
+|sun_sensor_pitch_neg
+|float
+
+|
+
+|Sun sensor measurement with respect to negative pitch angle.
+
+a|
+* []
+
+
+
+
+|sun_sensor_yaw_pos
+|float
+
+|
+
+|Sun sensor measurement with respect to positive yaw angle.
+
+a|
+* []
+
+
+
+
+|sun_sensor_yaw_neg
+|float
+
+|
+
+|Sun sensor measurement with respect to negative yaw angle.
+
+a|
+* []
+
+
+
+
+|sun_sensor_roll_pos
+|float
+
+|
+
+|Sun sensor measurement with respect to positive roll angle.
+
+a|
+* []
+
+
+
+
+|sun_sensor_roll_neg
+|float
+
+|
+
+|Sun sensor measurement with respect to negative roll angle.
+
+a|
+* []
+
+
+
+
+|time_stamp
+|string
+
+|
+
+|Time stamp of the last transmission.
+
+|
+
+
+
+|===
+
+
+==== *Derived From:*
+
+
+
+
+* xref:{doc-name}#_4_2_request_satellite_aods_sensor_data[Request Satellite AODS Sensor Data]
+
+
+
+
+
+=== TLE
+*Purpose:* Data structure for the TLE data
+
+=== TLE Template
+----
+tle_line_1: {{tle_line_1}}
+tle_line_2: {{tle_line_2}}
+
+----
+
+=== TLE Specification
+|===
+|Field |Type |Item Type |Description |Source
+
+
+|tle_line_1
+|3-DataStructures/5-TLELine1.yaml
+
+|
+
+|Data for TLE line 1
+
+|
+
+
+
+|tle_line_2
+|3-DataStructures/6-TLELine2.yaml
+
+|
+
+|Data for TLE line 2
+
+|
+
+
+
+|===
+
+
+==== *Derived From:*
+
+
+
+* https://www.celestrak.com/NORAD/documentation/tle-fmt.php[Two-Line Element Data]
+
+
+
+
+
+
+=== TLE Line 1
+*Purpose:* Data structure for the first line of the TLE data
+
+=== TLE Line 1 Template
+----
+line_number: {{line_number}}
+satellite_number: {{satellite_number}}
+classification: {{classification}}
+international_designator_1: {{international_designator_1}}
+international_designator_2: {{international_designator_2}}
+international_designator_3: {{international_designator_3}}
+epoch_year: {{epoch_year}}
+epoch: {{epoch}}
+first_dt: {{first_dt}}
+second_dt: {{second_dt}}
+bstar: {{bstar}}
+eph_type: {{eph_type}}
+element_number: {{element_number}}
+checksum: {{checksum}}
+
+----
+
+=== TLE Line 1 Specification
+|===
+|Field |Type |Item Type |Description |Source
+
+
+|line_number
+|string
+
+|
+
+|Line number of element data (Column 01)
+
+|
+
+
+
+|satellite_number
+|string
+
+|
+
+|Satellite number (Column 03-07)
+
+|
+
+
+
+|classification
+|string
+
+|
+
+|Classification of satellite (Column 08)
+
+|
+
+
+
+|international_designator_1
+|string
+
+|
+
+|International designator 1 (last two digits of launch year) (Column 10-11)
+
+|
+
+
+
+|international_designator_2
+|string
+
+|
+
+|International designator 2 (launch number of the year) (Column 12-14)
+
+|
+
+
+
+|international_designator_3
+|string
+
+|
+
+|International designator 3 (piece of the launch) (Column 15-17)
+
+|
+
+
+
+|epoch_year
+|string
+
+|
+
+|Epoch year (last two digits of year) (Column 19-20)
+
+|
+
+
+
+|epoch
+|string
+
+|
+
+|Epoch (day of the year and fractional portion of the day) (Column 21-32)
+
+|
+
+
+
+|first_dt
+|string
+
+|
+
+|First time derivative of the mean motion (Column 34-43)
+
+|
+
+
+
+|second_dt
+|string
+
+|
+
+|Second time derivative of the mean motion (leading decimal point assumed) (Column 45-52)
+
+|
+
+
+
+|bstar
+|string
+
+|
+
+|BSTAR drag term (leading decimal point assumed) (Column 54-61)
+
+|
+
+
+
+|eph_type
+|string
+
+|
+
+|Ephemeris type (Column 63)
+
+|
+
+
+
+|element_number
+|string
+
+|
+
+|Element number (Column 65-68)
+
+|
+
+
+
+|checksum
+|string
+
+|
+
+|Checksum (modulo 10) (letters, blanks, periods, plus signs = 0; minus signs = 1) (Column 69)
+
+|
+
+
+
+|===
+
+
+==== *Derived From:*
+
+
+
+* https://www.celestrak.com/NORAD/documentation/tle-fmt.php[Two-Line Element Data]
+
+
+
+
+
+
+=== TLE Line 2
+*Purpose:* Data structure for the second line of the TLE data
+
+=== TLE Line 2 Template
+----
+line_number: {{line_number}}
+satellite_number: {{satellite_number}}
+inclination: {{inclination}}
+raan: {{raan}}
+ecc: {{ecc}}
+perigee: {{perigee}}
+mean_anomaly: {{mean_anomaly}}
+mean_motion: {{mean_motion}}
+rev_epoch: {{rev_epoch}}
+checksum: {{checksum}}
+
+----
+
+=== TLE Line 2 Specification
+|===
+|Field |Type |Item Type |Description |Source
+
+
+|line_number
+|string
+
+|
+
+|Line number of element data (Column 01)
+
+|
+
+
+
+|satellite_number
+|string
+
+|
+
+|Satellite number (Column 03-07)
+
+|
+
+
+
+|inclination
+|string
+
+|
+
+|Inclination (degrees) (Column 09-16)
+
+|
+
+
+
+|raan
+|string
+
+|
+
+|Right ascension of the ascending node (degrees) (Column 18-25)
+
+|
+
+
+
+|ecc
+|string
+
+|
+
+|Eccentricity (leading decimal point assumed) (Column 27-33)
+
+|
+
+
+
+|perigee
+|string
+
+|
+
+|Argument of perigee (degrees) (Column 35-42)
+
+|
+
+
+
+|mean_anomaly
+|string
+
+|
+
+|Mean anomaly (degrees) (Column 44-51)
+
+|
+
+
+
+|mean_motion
+|string
+
+|
+
+|Mean motion (revs per day) (Column 53-63)
+
+|
+
+
+
+|rev_epoch
+|string
+
+|
+
+|Revolution number at epoch (revs) (Column 64-68)
+
+|
+
+
+
+|checksum
+|string
+
+|
+
+|Checksum (modulo 10) (letters, blanks, periods, plus signs = 0; minus signs = 1) (Column 69)
+
+|
+
+
+
+|===
+
+
+==== *Derived From:*
+
+
+
+* https://www.celestrak.com/NORAD/documentation/tle-fmt.php[Two-Line Element Data]
+
 
 
 

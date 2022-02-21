@@ -13,11 +13,17 @@ frame "uc [ SeaLion Mission Architecture Use Case Diagram ]" {
         
         (Establish communication link with satellite)
         
-        (Validate that satellite is operating nominally)
+        (validate that satellite is operating nominally)
         
         (View satellite health data packet)
         
         (Conserve power budget)
+        
+        (Locally verify/validate onboard AODS computations)
+        
+        (verify/validate AODS sensors & GPS data are within nominal parameters)
+        
+        (verify AODS sensor data yields nominal parameters)
         
 
     }
@@ -25,11 +31,17 @@ frame "uc [ SeaLion Mission Architecture Use Case Diagram ]" {
     
     :Ground Station Operator: -- (Establish communication link with satellite)
     
-    :Ground Station Operator: -- (Validate that satellite is operating nominally)
+    :Ground Station Operator: -- (validate that satellite is operating nominally)
     
     :Ground Station Operator: -- (View satellite health data packet)
     
     :Ground Station Operator: -- (Conserve power budget)
+    
+    :Ground Station Operator: -- (Locally verify/validate onboard AODS computations)
+    
+    :Ground Station Operator: -- (verify/validate AODS sensors & GPS data are within nominal parameters)
+    
+    :Ground Station Operator: -- (verify AODS sensor data yields nominal parameters)
     
 
 }
