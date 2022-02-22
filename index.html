@@ -468,6 +468,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_4_request_telemetry_data">4: Request Telemetry Data</a></li>
 <li><a href="#_4_1_request_satellite_health_data">4.1: Request Satellite Health Data</a></li>
 <li><a href="#_4_2_request_satellite_aods_sensor_data">4.2: Request Satellite AODS Sensor Data</a></li>
+<li><a href="#_5_payload_scheduler">5: Payload Scheduler</a></li>
+<li><a href="#_5_1_deployable_composite_structure_decs_payload_scheduler">5.1: Deployable Composite Structure (DeCS) Payload Scheduler</a></li>
+<li><a href="#_5_2_impedance_probe_payload_scheduler">5.2: Impedance Probe Payload Scheduler</a></li>
+<li><a href="#_5_3_multi_spectral_sensor_scheduler">5.3: Multi-spectral Sensor Scheduler</a></li>
+<li><a href="#_5_4_downlink_payload_data_tle">5.4: Downlink Payload Data TLE</a></li>
+<li><a href="#_6_payload_scheduler">6: Payload Scheduler</a></li>
+<li><a href="#_6_1_deployable_composite_structure_decs_payload_scheduler">6.1: Deployable Composite Structure (DeCS) Payload Scheduler</a></li>
+<li><a href="#_6_2_impedance_probe_payload_scheduler">6.2: Impedance Probe Payload Scheduler</a></li>
+<li><a href="#_6_3_multi_spectral_sensor_payload_scheduler">6.3: Multi-spectral Sensor Payload Scheduler</a></li>
+<li><a href="#_6_4_downlink_payload_data_time_interval">6.4: Downlink Payload Data Time Interval</a></li>
 <li><a href="#_user_stories_as_use_case_diagram">User stories as Use Case Diagram</a></li>
 </ul>
 </li>
@@ -608,7 +618,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>The SeaLion shall verify DeCS in-orbit behavior performance via accelerometer &amp; temperature sensor data</p>
+<p>The SeaLion shall verify DeCS in-orbit behavior performance.</p>
 </div>
 </div>
 </div>
@@ -774,10 +784,252 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
+<h3 id="_5_payload_scheduler">5: Payload Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>schedule data collection to occur at specfied orbital position</strong> so that I can <strong>allow satellite mission modes to autonomously record data</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_8">Example:</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_1_deployable_composite_structure_decs_payload_scheduler">5.1: Deployable Composite Structure (DeCS) Payload Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>schedule data collection to occur at specfied orbital position</strong> so that I can <strong>allow satellite mission modes to autonomously record data</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_9">Example:</h4>
+<div class="paragraph">
+<p>Schedule data recording at specfic orbital location to another orbital location for Deployable Composite Structure Payload</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_5"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_2_2_secondary_mission_objective_b2">Secondary Mission Objective B2</a></p>
+</li>
+<li>
+<p><a href="{doc-name}.html#_3_3_tertiary_mission_objective_c3">Tertiary Mission Objective C3</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_2_impedance_probe_payload_scheduler">5.2: Impedance Probe Payload Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Schedule data recording at specfic orbital location</strong> so that I can <strong>Recording data for future transmission</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_10">Example:</h4>
+<div class="paragraph">
+<p>Schedule data recording at specfic orbital location to another orbital location for impedance probe payload</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_6"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_1_5_primary_mission_objective_a5">Primary Mission Objective A5</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_3_multi_spectral_sensor_scheduler">5.3: Multi-spectral Sensor Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Schedule data recording at specfic orbital location</strong> so that I can <strong>Recording data for future transmission</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_11">Example:</h4>
+<div class="paragraph">
+<p>Schedule data recording at specfic orbital location to another orbital location for Multi-spectral Sensor payload</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_7"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_2_1_secondary_mission_objective_b1">Secondary Mission Objective B1</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_4_downlink_payload_data_tle">5.4: Downlink Payload Data TLE</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Transmit TLE schedulered satellite recorded data to ground station</strong> so that I can <strong>Vacant on-board memory for more data</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_12">Example:</h4>
+<div class="paragraph">
+<p>Start downlink TLE schedulered payload data once the satellite is in line of sight</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_8"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_1_3_primary_mission_objective_a3">Primary Mission Objective A3</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_payload_scheduler">6: Payload Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Schedule data recording at specfic time interval</strong> so that I can <strong>Recording data for future transmission</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_13">Example:</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_1_deployable_composite_structure_decs_payload_scheduler">6.1: Deployable Composite Structure (DeCS) Payload Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Schedule data recording at specfic time interval (or orbital location)</strong> so that I can <strong>Recording data for future transmission</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_14">Example:</h4>
+<div class="paragraph">
+<p>Schedule data recording at specfic time interval  for Deployable Composite Structure Payload</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_9"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_2_2_secondary_mission_objective_b2">Secondary Mission Objective B2</a></p>
+</li>
+<li>
+<p><a href="{doc-name}.html#_3_3_tertiary_mission_objective_c3">Tertiary Mission Objective C3</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_2_impedance_probe_payload_scheduler">6.2: Impedance Probe Payload Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Schedule data recording at specfic time interval</strong> so that I can <strong>Recording data for future transmission</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_15">Example:</h4>
+<div class="paragraph">
+<p>Schedule data recording at specfic time interval for Impedance Probe Payload</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_10"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_1_5_primary_mission_objective_a5">Primary Mission Objective A5</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_3_multi_spectral_sensor_payload_scheduler">6.3: Multi-spectral Sensor Payload Scheduler</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Schedule data recording at specfic time interval</strong> so that I can <strong>Recording data for future transmission</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_16">Example:</h4>
+<div class="paragraph">
+<p>Schedule data recording at specfic time interval for Multi-spectral Sensor Payload</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_11"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_2_1_secondary_mission_objective_b1">Secondary Mission Objective B1</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_4_downlink_payload_data_time_interval">6.4: Downlink Payload Data Time Interval</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Transmit time interval schedulered satellite recorded data to ground station</strong> so that I can <strong>Vacant on-board memory for more data</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_17">Example:</h4>
+<div class="paragraph">
+<p>Start downlink time interval schedulered payload Data once the satellite is in line of sight</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_12"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="{doc-name}.html#_1_3_primary_mission_objective_a3">Primary Mission Objective A3</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_user_stories_as_use_case_diagram">User stories as Use Case Diagram</h3>
 <div class="imageblock">
 <div class="content">
-<img src="use-case-diagram.svg" alt="use case diagram" width="781" height="800">
+<img src="use-case-diagram.svg" alt="use case diagram" width="781" height="1119">
 </div>
 </div>
 </div>
@@ -853,7 +1105,7 @@ tle_data: {{tle_data}}</pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_derived_from_5"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_13"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1062,7 +1314,7 @@ longitude_GPS: {{longitude}}</pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_derived_from_6"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_14"><strong>Derived From:</strong></h4>
 
 </div>
 </div>
@@ -1238,7 +1490,7 @@ time_stamp: {{time_stamp}}</pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_derived_from_7"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_15"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1296,7 +1548,7 @@ tle_line_2: {{tle_line_2}}</pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_derived_from_8"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_16"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1450,7 +1702,7 @@ checksum: {{checksum}}</pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_derived_from_9"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_17"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1572,7 +1824,7 @@ checksum: {{checksum}}</pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_derived_from_10"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_18"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1598,7 +1850,7 @@ checksum: {{checksum}}</pre>
 <div id="footer">
 <div id="footer-text">
 Version v3.0.1<br>
-Last updated 2022-02-22 19:10:17 UTC
+Last updated 2022-02-22 23:59:18 UTC
 </div>
 </div>
 </body>

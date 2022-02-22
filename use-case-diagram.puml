@@ -25,6 +25,26 @@ frame "uc [ SeaLion Mission Architecture Use Case Diagram ]" {
         
         (verify AODS sensor data yields nominal parameters)
         
+        (allow satellite mission modes to autonomously record data)
+        
+        (allow satellite mission modes to autonomously record data)
+        
+        (Recording data for future transmission)
+        
+        (Recording data for future transmission)
+        
+        (Vacant on-board memory for more data)
+        
+        (Recording data for future transmission)
+        
+        (Recording data for future transmission)
+        
+        (Recording data for future transmission)
+        
+        (Recording data for future transmission)
+        
+        (Vacant on-board memory for more data)
+        
 
     }
 
@@ -42,6 +62,26 @@ frame "uc [ SeaLion Mission Architecture Use Case Diagram ]" {
     :Ground Station Operator: -- (verify/validate AODS sensors & GPS data are within nominal parameters)
     
     :Ground Station Operator: -- (verify AODS sensor data yields nominal parameters)
+    
+    :Ground Station Operator: -- (allow satellite mission modes to autonomously record data)
+    
+    :Ground Station Operator: -- (allow satellite mission modes to autonomously record data)
+    
+    :Ground Station Operator: -- (Recording data for future transmission)
+    
+    :Ground Station Operator: -- (Recording data for future transmission)
+    
+    :Ground Station Operator: -- (Vacant on-board memory for more data)
+    
+    :Ground Station Operator: -- (Recording data for future transmission)
+    
+    :Ground Station Operator: -- (Recording data for future transmission)
+    
+    :Ground Station Operator: -- (Recording data for future transmission)
+    
+    :Ground Station Operator: -- (Recording data for future transmission)
+    
+    :Ground Station Operator: -- (Vacant on-board memory for more data)
     
 
 }
