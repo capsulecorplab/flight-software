@@ -126,7 +126,7 @@ Ping the satellite in order to establish UHF communication link with Virginia gr
 
 
 
-* xref:{doc-name}#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
+* xref:sealion-mission-architecture#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
 
 
 
@@ -161,7 +161,7 @@ Open ground station beacon monitor to listen for satellite health data packet do
 
 
 
-* xref:{doc-name}#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+* xref:sealion-mission-architecture#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
 
 
 
@@ -209,7 +209,7 @@ Request satellite health data packet to verify or validate AODS sensors and GPS 
 
 
 
-* xref:{doc-name}#_4_request_telemetry_data[Request Telemetry Data]
+* xref:sealion-mission-architecture#_4_request_telemetry_data[Request Telemetry Data]
 
 
 
@@ -231,7 +231,7 @@ Request satellite AODS sensor data for verifying AODS sensor data corresponds wi
 
 
 
-* xref:{doc-name}#_4_request_telemetry_data[Request Telemetry Data]
+* xref:sealion-mission-architecture#_4_request_telemetry_data[Request Telemetry Data]
 
 
 
@@ -266,12 +266,12 @@ Schedule data recording at specfic orbital location to another orbital location 
 
 
 
-* xref:{doc-name}#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
+* xref:sealion-mission-architecture#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
 
 
 
 
-* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
+* xref:sealion-mission-architecture#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
 
 
 
@@ -293,7 +293,7 @@ Schedule data recording at specfic orbital location to another orbital location 
 
 
 
-* xref:{doc-name}#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
+* xref:sealion-mission-architecture#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
 
 
 
@@ -315,7 +315,7 @@ Schedule data recording at specfic orbital location to another orbital location 
 
 
 
-* xref:{doc-name}#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
+* xref:sealion-mission-architecture#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
 
 
 
@@ -337,7 +337,7 @@ Start downlink TLE schedulered payload data once the satellite is in line of sig
 
 
 
-* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
+* xref:sealion-mission-architecture#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
 
 
 
@@ -372,12 +372,12 @@ Schedule data recording at specfic time interval  for Deployable Composite Struc
 
 
 
-* xref:{doc-name}#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
+* xref:sealion-mission-architecture#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
 
 
 
 
-* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
+* xref:sealion-mission-architecture#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
 
 
 
@@ -399,7 +399,7 @@ Schedule data recording at specfic time interval for Impedance Probe Payload
 
 
 
-* xref:{doc-name}#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
+* xref:sealion-mission-architecture#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
 
 
 
@@ -421,7 +421,7 @@ Schedule data recording at specfic time interval for Multi-spectral Sensor Paylo
 
 
 
-* xref:{doc-name}#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
+* xref:sealion-mission-architecture#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
 
 
 
@@ -443,7 +443,7 @@ Start downlink time interval schedulered payload Data once the satellite is in l
 
 
 
-* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
+* xref:sealion-mission-architecture#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
 
 
 
@@ -531,12 +531,12 @@ tle_data: {{tle_data}}
 
 
 
-* xref:{doc-name}#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+* xref:sealion-mission-architecture#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
 
 
 
 
-* xref:{doc-name}#_4_1_request_satellite_health_data[Request Satellite Health Data]
+* xref:sealion-mission-architecture#_4_1_request_satellite_health_data[Request Satellite Health Data]
 
 
 
@@ -962,7 +962,7 @@ a|
 
 
 
-* xref:{doc-name}#_4_2_request_satellite_aods_sensor_data[Request Satellite AODS Sensor Data]
+* xref:sealion-mission-architecture#_4_2_request_satellite_aods_sensor_data[Request Satellite AODS Sensor Data]
 
 
 
