@@ -25,27 +25,7 @@ frame "uc [ SeaLion Mission Architecture Use Case Diagram ]" {
         
         (validate in-orbit AODS and/or payload performance)
         
-        (allow satellite mission modes to autonomously record data)
-        
         (manage time spent per mission mode)
-        
-        (allow satellite mission modes to autonomously record data)
-        
-        (Recording data for future transmission)
-        
-        (Recording data for future transmission)
-        
-        (Vacant on-board memory for more data)
-        
-        (Recording data for future transmission)
-        
-        (Recording data for future transmission)
-        
-        (Recording data for future transmission)
-        
-        (Recording data for future transmission)
-        
-        (Vacant on-board memory for more data)
         
 
     }
@@ -65,27 +45,7 @@ frame "uc [ SeaLion Mission Architecture Use Case Diagram ]" {
     
     :Ground Station Operator: -- (validate in-orbit AODS and/or payload performance)
     
-    :Ground Station Operator: -- (allow satellite mission modes to autonomously record data)
-    
     :Ground Station Operator: -- (manage time spent per mission mode)
-    
-    :Ground Station Operator: -- (allow satellite mission modes to autonomously record data)
-    
-    :Ground Station Operator: -- (Recording data for future transmission)
-    
-    :Ground Station Operator: -- (Recording data for future transmission)
-    
-    :Ground Station Operator: -- (Vacant on-board memory for more data)
-    
-    :Ground Station Operator: -- (Recording data for future transmission)
-    
-    :Ground Station Operator: -- (Recording data for future transmission)
-    
-    :Ground Station Operator: -- (Recording data for future transmission)
-    
-    :Ground Station Operator: -- (Recording data for future transmission)
-    
-    :Ground Station Operator: -- (Vacant on-board memory for more data)
     
 
 }

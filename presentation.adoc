@@ -131,7 +131,7 @@ Ping the satellite in order to establish UHF communication link with Virginia gr
 
 
 
-* xref:{doc-name}#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
+* xref:sealion-mission-architecture#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
 
 
 
@@ -153,42 +153,42 @@ View satellite beacon data (health or mission data) to verify that TLE's corresp
 
 
 
-* xref:{doc-name}#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
+* xref:sealion-mission-architecture#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
 
 
 
 
-* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
+* xref:sealion-mission-architecture#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
 
 
 
 
-* xref:{doc-name}#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
+* xref:sealion-mission-architecture#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
 
 
 
 
-* xref:{doc-name}#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
+* xref:sealion-mission-architecture#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
 
 
 
 
-* xref:{doc-name}#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
+* xref:sealion-mission-architecture#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
 
 
 
 
-* xref:{doc-name}#_3_1_tertiary_mission_objective_c1[Tertiary Mission Objective C1]
+* xref:sealion-mission-architecture#_3_1_tertiary_mission_objective_c1[Tertiary Mission Objective C1]
 
 
 
 
-* xref:{doc-name}#_3_2_tertiary_mission_objective_c2[Tertiary Mission Objective C2]
+* xref:sealion-mission-architecture#_3_2_tertiary_mission_objective_c2[Tertiary Mission Objective C2]
 
 
 
 
-* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
+* xref:sealion-mission-architecture#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
 
 
 
@@ -236,7 +236,7 @@ Request satellite health data packet to verify or validate TLE data correspondin
 
 
 
-* xref:{doc-name}#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
+* xref:sealion-mission-architecture#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
 
 
 
@@ -258,12 +258,12 @@ Request satellite health data packet via S-band radio to verify or validate TLE 
 
 
 
-* xref:{doc-name}#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
+* xref:sealion-mission-architecture#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
 
 
 
 
-* xref:{doc-name}#_1_2_primary_mission_objective_a2[Primary Mission Objective A2]
+* xref:sealion-mission-architecture#_1_2_primary_mission_objective_a2[Primary Mission Objective A2]
 
 
 
@@ -285,60 +285,47 @@ Request satellite mission data to verify that TLE's & AODS sensor data correspon
 
 
 
-* xref:{doc-name}#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
+* xref:sealion-mission-architecture#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
 
 
 
 
-* xref:{doc-name}#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
+* xref:sealion-mission-architecture#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
 
 
 
 
-* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
+* xref:sealion-mission-architecture#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
 
 
 
 
-* xref:{doc-name}#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
+* xref:sealion-mission-architecture#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
 
 
 
 
-* xref:{doc-name}#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
+* xref:sealion-mission-architecture#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
 
 
 
 
-* xref:{doc-name}#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
+* xref:sealion-mission-architecture#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
 
 
 
 
-* xref:{doc-name}#_3_1_tertiary_mission_objective_c1[Tertiary Mission Objective C1]
+* xref:sealion-mission-architecture#_3_1_tertiary_mission_objective_c1[Tertiary Mission Objective C1]
 
 
 
 
-* xref:{doc-name}#_3_2_tertiary_mission_objective_c2[Tertiary Mission Objective C2]
+* xref:sealion-mission-architecture#_3_2_tertiary_mission_objective_c2[Tertiary Mission Objective C2]
 
 
 
 
-* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
-
-
-
-
-
-=== 5: Payload Scheduler
-
-****
-As a *Ground Station Operator* I want to *schedule data collection to occur at specfied orbital position* so that I can *allow satellite mission modes to autonomously record data*.
-****
-
-==== Example:
-
+* xref:sealion-mission-architecture#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
 
 
 
@@ -353,205 +340,6 @@ As a *Ground Station Operator* I want to *send a request to set mission mode dur
 ==== Example:
 
 send a request to set Mission Mode 1 duration to 25 minutes
-
-
-
-
-=== 5.1: Deployable Composite Structure (DeCS) Payload Scheduler
-
-****
-As a *Ground Station Operator* I want to *schedule data collection to occur at specfied orbital position* so that I can *allow satellite mission modes to autonomously record data*.
-****
-
-==== Example:
-
-Schedule data recording at specfic orbital location to another orbital location for Deployable Composite Structure Payload
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
-
-
-
-
-* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
-
-
-
-
-
-=== 5.2: Impedance Probe Payload Scheduler
-
-****
-As a *Ground Station Operator* I want to *Schedule data recording at specfic orbital location* so that I can *Recording data for future transmission*.
-****
-
-==== Example:
-
-Schedule data recording at specfic orbital location to another orbital location for impedance probe payload
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
-
-
-
-
-
-=== 5.3: Multi-spectral Sensor Scheduler
-
-****
-As a *Ground Station Operator* I want to *Schedule data recording at specfic orbital location* so that I can *Recording data for future transmission*.
-****
-
-==== Example:
-
-Schedule data recording at specfic orbital location to another orbital location for Multi-spectral Sensor payload
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
-
-
-
-
-
-=== 5.4: Downlink Payload Data TLE
-
-****
-As a *Ground Station Operator* I want to *Transmit TLE schedulered satellite recorded data to ground station* so that I can *Vacant on-board memory for more data*.
-****
-
-==== Example:
-
-Start downlink TLE schedulered payload data once the satellite is in line of sight
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
-
-
-
-
-
-=== 6: Payload Scheduler
-
-****
-As a *Ground Station Operator* I want to *Schedule data recording at specfic time interval* so that I can *Recording data for future transmission*.
-****
-
-==== Example:
-
-
-
-
-
-
-=== 6.1: Deployable Composite Structure (DeCS) Payload Scheduler
-
-****
-As a *Ground Station Operator* I want to *Schedule data recording at specfic time interval (or orbital location)* so that I can *Recording data for future transmission*.
-****
-
-==== Example:
-
-Schedule data recording at specfic time interval  for Deployable Composite Structure Payload
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
-
-
-
-
-* xref:{doc-name}#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
-
-
-
-
-
-=== 6.2: Impedance Probe Payload Scheduler
-
-****
-As a *Ground Station Operator* I want to *Schedule data recording at specfic time interval* so that I can *Recording data for future transmission*.
-****
-
-==== Example:
-
-Schedule data recording at specfic time interval for Impedance Probe Payload
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
-
-
-
-
-
-=== 6.3: Multi-spectral Sensor Payload Scheduler
-
-****
-As a *Ground Station Operator* I want to *Schedule data recording at specfic time interval* so that I can *Recording data for future transmission*.
-****
-
-==== Example:
-
-Schedule data recording at specfic time interval for Multi-spectral Sensor Payload
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
-
-
-
-
-
-=== 6.4: Downlink Payload Data Time Interval
-
-****
-As a *Ground Station Operator* I want to *Transmit time interval schedulered satellite recorded data to ground station* so that I can *Vacant on-board memory for more data*.
-****
-
-==== Example:
-
-Start downlink time interval schedulered payload Data once the satellite is in line of sight
-
-
-==== *Derived From:*
-
-
-
-
-* xref:{doc-name}#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
-
 
 
 
@@ -649,12 +437,12 @@ tle_data: {{tle_data}}
 
 
 
-* xref:{doc-name}#_2_view_satellite_beacon_data[View Satellite Beacon Data]
+* xref:sealion-mission-architecture#_2_view_satellite_beacon_data[View Satellite Beacon Data]
 
 
 
 
-* xref:{doc-name}#_4_1_request_satellite_health_data[Request Satellite Health Data]
+* xref:sealion-mission-architecture#_4_1_request_satellite_health_data[Request Satellite Health Data]
 
 
 
@@ -1381,12 +1169,12 @@ exit_tle: {{exit_tle}}
 
 
 
-* xref:{doc-name}#_2_view_satellite_beacon_data[View Satellite Beacon Data]
+* xref:sealion-mission-architecture#_2_view_satellite_beacon_data[View Satellite Beacon Data]
 
 
 
 
-* xref:{doc-name}#_4_2_request_satellite_mission_data[Request Satellite Mission Data]
+* xref:sealion-mission-architecture#_4_2_request_satellite_mission_data[Request Satellite Mission Data]
 
 
 
