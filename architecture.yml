@@ -105,46 +105,48 @@ elements:
     example: >-
       Ping the satellite in order to establish UHF communication link with
       Virginia ground station
-  2-UserStories/2-ViewSatelliteHealthDataPacket.yaml: &ref_19
+  2-UserStories/2-ViewBeaconData.yaml: &ref_19
     id: 2
-    name: View Satellite Health Data Packet
+    name: View Satellite Beacon Data
     actor: Ground Station Operator
-    behavior: view satellite health data packet
-    rationale: validate that satellite is operating nominally
-    derivedFrom: []
-    example: >-
-      View satellite health data packet to verify or validate AODS sensor & GPS
-      data is within nominal range and/or corresponds to expected orbit profile
-  2-UserStories/2.1-ListenForSatelliteBeacon.yaml: &ref_20
-    id: 2.1
-    name: Listen for Satellite Beacon
-    actor: Ground Station Operator
-    behavior: Open ground station beacon monitor
-    rationale: View satellite health data packet
+    behavior: >-
+      view satellite beacon data (alternating between health & mission data),
+      received via UHF
+    rationale: verify that satellite is operating nominally
     derivedFrom:
-      - 2-UserStories/2-ViewSatelliteHealthDataPacket.yaml
+      - 1-StakeholderNeeds/1.1-PrimaryMissionObjective-A1.yaml
+      - 1-StakeholderNeeds/1.3-PrimaryMissionObjective-A3.yaml
+      - 1-StakeholderNeeds/1.5-PrimaryMissionObjective-A5.yaml
+      - 1-StakeholderNeeds/2.1-SecondaryMissionObjective-B1.yaml
+      - 1-StakeholderNeeds/2.2-SecondaryMissionObjective-B2.yaml
+      - 1-StakeholderNeeds/3.1-TertiaryMissionObjective-C1.yaml
+      - 1-StakeholderNeeds/3.2-TertiaryMissionObjective-C2.yaml
+      - 1-StakeholderNeeds/3.3-TertiaryMissionObjective-C3.yaml
     example: >-
-      Open ground station beacon monitor to listen for satellite health data
-      packet downlink
-  2-UserStories/3-UpdateBeaconRate.yaml: &ref_21
+      View satellite beacon data (health or mission data) to verify that TLE's
+      correspond with expected orbit profile and/or to validate that a mission
+      mode was successful
+  2-UserStories/3-SetInterruptTimer.yaml: &ref_20
     id: 3
-    name: Update Beacon Rate
+    name: Send Request to Set Interrupt Timer
     actor: Ground Station Operator
-    behavior: Update Beacon Rate
-    rationale: Conserve power budget
+    behavior: >-
+      send a request to set count value at which interrupt timers (i.e., beacon,
+      GPS ping, or orbit propagator) are triggered
+    rationale: finetune parameters for attitude or orbit analysis or to conserve power
     derivedFrom: []
     example: Update beacon rate to transmit every 30 minutes to conserve power
-  2-UserStories/4-RequestTelemetryData.yaml: &ref_22
+  2-UserStories/4-RequestTelemetryData.yaml: &ref_21
     id: 4
-    name: Request Telemetry Data
+    name: Request Telemetry or EventLog Data
     actor: Ground Station Operator
-    behavior: Request satellite telemetry data packets
-    rationale: Locally verify/validate onboard AODS computations
+    behavior: Request satellite telemetry or eventlog data
+    rationale: verify/validate health status or mission data
     derivedFrom: ''
     example: >-
       Request satellite telemetry packets for local verification/validation of
       onboard AODS computations
-  2-UserStories/4.1-RequestSatelliteHealthData.yaml: &ref_23
+  2-UserStories/4.1-RequestSatelliteHealthData.yaml: &ref_22
     id: 4.1
     name: Request Satellite Health Data
     actor: Ground Station Operator
@@ -153,21 +155,42 @@ elements:
     derivedFrom:
       - 2-UserStories/4-RequestTelemetryData.yaml
     example: >-
-      Request satellite health data packet to verify or validate AODS sensors
-      and GPS data correspond to expected attitude and/or orbit profile based on
-      pre-computed attitude or orbit propagation model
-  2-UserStories/4.2-RequestSatelliteAODSSensorData.yaml: &ref_24
-    id: 4.2
-    name: Request Satellite AODS Sensor Data
+      Request satellite health data packet to verify or validate TLE data
+      corresponding to expected orbit profile based on pre-computed orbit
+      propagation model
+  2-UserStories/4.1.1-RequestSatelliteHealthDataSBand.yaml: &ref_23
+    id: 4.1.1
+    name: Request Satellite Health Data via S-Band Radio
     actor: Ground Station Operator
-    behavior: request satellite AODS sensor data
-    rationale: verify AODS sensor data yields nominal parameters
+    behavior: request satellite health data packet via S-band radio
+    rationale: verify/validate AODS sensors & GPS data are within nominal parameters
     derivedFrom:
       - 2-UserStories/4-RequestTelemetryData.yaml
+      - 1-StakeholderNeeds/1.2-PrimaryMissionObjective-A2.yaml
     example: >-
-      Request satellite AODS sensor data for verifying AODS sensor data
-      corresponds with a known magnetic field, light source, and/or change in
-      orientation w.r.t. satellites body frame of reference
+      Request satellite health data packet via S-band radio to verify or
+      validate TLE data corresponding to expected orbit profile based on
+      pre-computed orbit propagation model
+  2-UserStories/4.2-RequestMissionData.yaml: &ref_24
+    id: 4.2
+    name: Request Satellite Mission Data
+    actor: Ground Station Operator
+    behavior: request satellite mission data
+    rationale: validate in-orbit AODS and/or payload performance
+    derivedFrom:
+      - 2-UserStories/4-RequestTelemetryData.yaml
+      - 1-StakeholderNeeds/1.1-PrimaryMissionObjective-A1.yaml
+      - 1-StakeholderNeeds/1.3-PrimaryMissionObjective-A3.yaml
+      - 1-StakeholderNeeds/1.5-PrimaryMissionObjective-A5.yaml
+      - 1-StakeholderNeeds/2.1-SecondaryMissionObjective-B1.yaml
+      - 1-StakeholderNeeds/2.2-SecondaryMissionObjective-B2.yaml
+      - 1-StakeholderNeeds/3.1-TertiaryMissionObjective-C1.yaml
+      - 1-StakeholderNeeds/3.2-TertiaryMissionObjective-C2.yaml
+      - 1-StakeholderNeeds/3.3-TertiaryMissionObjective-C3.yaml
+    example: >-
+      Request satellite mission data to verify that TLE's & AODS sensor data
+      correspond with expected orbit profile and/or validate that a mission mode
+      was successful
   2-UserStories/5-PayloadSchedulerTLE.yaml: &ref_25
     id: 5
     name: Payload Scheduler
@@ -176,7 +199,15 @@ elements:
     rationale: allow satellite mission modes to autonomously record data
     derivedFrom: []
     example: ''
-  2-UserStories/5.1-DeCSPayloadSchedulerTLE.yaml: &ref_26
+  2-UserStories/5-SetMissionModeDuration.yaml: &ref_26
+    id: 5
+    name: Send Request to Set Mission Mode Duration
+    actor: Ground Station Operator
+    behavior: send a request to set mission mode duration
+    rationale: manage time spent per mission mode
+    derivedFrom: []
+    example: send a request to set Mission Mode 1 duration to 25 minutes
+  2-UserStories/5.1-DeCSPayloadSchedulerTLE.yaml: &ref_27
     id: 5.1
     name: Deployable Composite Structure (DeCS) Payload Scheduler
     actor: Ground Station Operator
@@ -188,7 +219,7 @@ elements:
     example: >-
       Schedule data recording at specfic orbital location to another orbital
       location for Deployable Composite Structure Payload
-  2-UserStories/5.2-IPPayloadSchedulerTLE.yaml: &ref_27
+  2-UserStories/5.2-IPPayloadSchedulerTLE.yaml: &ref_28
     id: 5.2
     name: Impedance Probe Payload Scheduler
     actor: Ground Station Operator
@@ -199,7 +230,7 @@ elements:
     example: >-
       Schedule data recording at specfic orbital location to another orbital
       location for impedance probe payload
-  2-UserStories/5.3-MsSPayloadSchedulerTLE.yaml: &ref_28
+  2-UserStories/5.3-MsSPayloadSchedulerTLE.yaml: &ref_29
     id: 5.3
     name: Multi-spectral Sensor Scheduler
     actor: Ground Station Operator
@@ -210,7 +241,7 @@ elements:
     example: >-
       Schedule data recording at specfic orbital location to another orbital
       location for Multi-spectral Sensor payload
-  2-UserStories/5.4-DownlinkPayloadDataTLE.yaml: &ref_29
+  2-UserStories/5.4-DownlinkPayloadDataTLE.yaml: &ref_30
     id: 5.4
     name: Downlink Payload Data TLE
     actor: Ground Station Operator
@@ -221,7 +252,7 @@ elements:
     example: >-
       Start downlink TLE schedulered payload data once the satellite is in line
       of sight
-  2-UserStories/6-PayloadSchedulerTimeInterval.yaml: &ref_30
+  2-UserStories/6-PayloadSchedulerTimeInterval.yaml: &ref_31
     id: 6
     name: Payload Scheduler
     actor: Ground Station Operator
@@ -229,7 +260,7 @@ elements:
     rationale: Recording data for future transmission
     derivedFrom: []
     example: ''
-  2-UserStories/6.1-DeCSPayloadSchedulerTimeInterval.yaml: &ref_31
+  2-UserStories/6.1-DeCSPayloadSchedulerTimeInterval.yaml: &ref_32
     id: 6.1
     name: Deployable Composite Structure (DeCS) Payload Scheduler
     actor: Ground Station Operator
@@ -241,7 +272,7 @@ elements:
     example: >-
       Schedule data recording at specfic time interval  for Deployable Composite
       Structure Payload
-  2-UserStories/6.2-IPPayloadSchedulerTimeInterval.yaml: &ref_32
+  2-UserStories/6.2-IPPayloadSchedulerTimeInterval.yaml: &ref_33
     id: 6.2
     name: Impedance Probe Payload Scheduler
     actor: Ground Station Operator
@@ -252,7 +283,7 @@ elements:
     example: >-
       Schedule data recording at specfic time interval for Impedance Probe
       Payload
-  2-UserStories/6.3-MsSPayloadSchedulerTimeInterval.yaml: &ref_33
+  2-UserStories/6.3-MsSPayloadSchedulerTimeInterval.yaml: &ref_34
     id: 6.3
     name: Multi-spectral Sensor Payload Scheduler
     actor: Ground Station Operator
@@ -263,7 +294,7 @@ elements:
     example: >-
       Schedule data recording at specfic time interval for Multi-spectral Sensor
       Payload
-  2-UserStories/6.4-DownlinkPayloadDataTimeInterval.yaml: &ref_34
+  2-UserStories/6.4-DownlinkPayloadDataTimeInterval.yaml: &ref_35
     id: 6.4
     name: Downlink Payload Data Time Interval
     actor: Ground Station Operator
@@ -276,12 +307,13 @@ elements:
     example: >-
       Start downlink time interval schedulered payload Data once the satellite
       is in line of sight
-  3-DataStructures/1-SatelliteHealth.yaml: &ref_35
+  3-DataStructures/1-SatelliteHealth.yaml: &ref_36
     name: Satellite Health Data Packet
     purpose: Data structure for satellite health data packet used for beacon telemetry
     template: |
       call_sign: {{call_sign}}
       battery_health: {{battery_health}}
+      temperature_battery: {{temperature_battery}}
       mode: {{mode}}
       tle_data: {{tle_data}}
     elements:
@@ -295,6 +327,11 @@ elements:
         itemType: ''
         description: Percent value indicating the remaining charge of the batteries.
         derivedFrom: ''
+      - key: temperature_battery
+        type: float
+        itemType: ''
+        description: The temperature of the battery. Units in Kelvin.
+        derivedFrom: ''
       - key: mode
         type: integer
         itemType: ''
@@ -303,112 +340,26 @@ elements:
           mode 1, 2 = mission mode 2, 3 = mission mode 3.
         derivedFrom: ''
       - key: tle_data
-        type: 3-DataStructures/4-TLE.yaml
+        type: TLE
         itemType: ''
         description: TLE data from orbit propogator at time of beacon.
         derivedFrom: ''
     derivedFrom:
-      - 2-UserStories/2-ViewSatelliteHealthDataPacket.yaml
+      - 2-UserStories/2-ViewBeaconData.yaml
       - 2-UserStories/4.1-RequestSatelliteHealthData.yaml
-  3-DataStructures/2-AODSICData.yaml: &ref_36
-    name: Satellite AODS IC Data
-    purpose: >-
-      Data structure for satellite AODS initial conditions data packet used for
-      attitude determination and orbit propagation
+  3-DataStructures/2-AODSGPSData.yaml: &ref_37
+    name: Satellite GPS Data
+    purpose: Data structure for GPS data used for orbit propagation
     template: |
-      imu_gyro_x: {{imu_gyro_x}}
-      imu_gyro_y: {{imu_gyro_y}}
-      imu_gyro_z: {{imu_gyro_z}}
-      imu_magnetometer_x: {{imu_magnetometer_x}}
-      imu_magnetometer_y: {{imu_magnetometer_y}}
-      imu_magnetometer_z: {{imu_magnetometer_z}}
-      sun_sensor_pitch_pos: {{sun_sensor_pitch_pos}}
-      sun_sensor_pitch_neg: {{sun_sensor_pitch_neg}}
-      sun_sensor_yaw_pos: {{sun_sensor_yaw_pos}}
-      sun_sensor_yaw_neg: {{sun_sensor_yaw_neg}}
-      sun_sensor_roll_pos: {{sun_sensor_roll_pos}}
-      sun_sensor_roll_neg: {{sun_sensor_roll_neg}}
       time_stamp: {{time_stamp}}
       altitude_data_GPS: {{altitude_data}}
       lattitude_GPS: {{lattitude}}
       longitude_GPS: {{longitude}}
     elements:
-      - key: imu_gyro_x
-        type: float
-        itemType: ''
-        description: >-
-          The angular rate of the body with to respective to the x-axis in the
-          IMU's reference frame.
-        derivedFrom: ''
-      - key: imu_gyro_y
-        type: float
-        itemType: ''
-        description: >-
-          The angular rate of the body with to respective to the y-axis in the
-          IMU's reference frame.
-        derivedFrom: ''
-      - key: imu_gyro_z
-        type: float
-        itemType: ''
-        description: >-
-          The angular rate of the body with to respective to the z-axis in the
-          IMU's reference frame.
-        derivedFrom: ''
-      - key: imu_magnetometer_x
-        type: float
-        itemType: ''
-        description: >-
-          The magnetic field strength with respective to the x-axis in the IMU's
-          reference frame.
-        derivedFrom: ''
-      - key: imu_magnetometer_y
-        type: float
-        itemType: ''
-        description: >-
-          The magnetic field strength with respective to the y-axis in the IMU's
-          reference frame.
-        derivedFrom: ''
-      - key: imu_magnetometer_z
-        type: float
-        itemType: ''
-        description: >-
-          The magnetic field strength with respective to the z-axis in the IMU's
-          reference frame.
-        derivedFrom: ''
-      - key: sun_sensor_pitch_pos
-        type: float
-        itemType: ''
-        description: Sun sensor measurement with respect to positive pitch angle.
-        derivedFrom: 2-UserStories/2.2-ViewADSRawData.yaml
-      - key: sun_sensor_pitch_neg
-        type: float
-        itemType: ''
-        description: Sun sensor measurement with respect to negative pitch angle.
-        derivedFrom: 2-UserStories/2.2-ViewADSRawData.yaml
-      - key: sun_sensor_yaw_pos
-        type: float
-        itemType: ''
-        description: Sun sensor measurement with respect to positive yaw angle.
-        derivedFrom: 2-UserStories/2.2-ViewADSRawData.yaml
-      - key: sun_sensor_yaw_neg
-        type: float
-        itemType: ''
-        description: Sun sensor measurement with respect to negative yaw angle.
-        derivedFrom: 2-UserStories/2.2-ViewADSRawData.yaml
-      - key: sun_sensor_roll_pos
-        type: float
-        itemType: ''
-        description: Sun sensor measurement with respect to positive roll angle.
-        derivedFrom: 2-UserStories/2.2-ViewADSRawData.yaml
-      - key: sun_sensor_roll_neg
-        type: float
-        itemType: ''
-        description: Sun sensor measurement with respect to negative roll angle.
-        derivedFrom: 2-UserStories/2.2-ViewADSRawData.yaml
       - key: time_stamp
         type: string
         itemType: ''
-        description: Time stamp of the last transmission.
+        description: Time stamp when GPS data was acquired.
         derivedFrom: ''
       - key: altitude_data_GPS
         type: float
@@ -425,9 +376,8 @@ elements:
         itemType: ''
         description: Longitude coordinate of the satellite from GPS.
         derivedFrom: ''
-    derivedFrom:
-      - 4.1-RequestSatelliteHealthData.yaml
-  3-DataStructures/3-AODSSensorData.yaml: &ref_37
+    derivedFrom: []
+  3-DataStructures/3-AODSSensorData.yaml: &ref_38
     name: Satellite AODS Sensor Data
     purpose: >-
       Data structure for satellite AODS sensor data used for attitude
@@ -526,26 +476,26 @@ elements:
         derivedFrom: ''
     derivedFrom:
       - 2-UserStories/4.2-RequestSatelliteAODSSensorData.yaml
-  3-DataStructures/4-TLE.yaml: &ref_38
+  3-DataStructures/4-TLE.yaml: &ref_39
     name: TLE
-    purpose: Data structure for the TLE data
+    purpose: Data structure for the TLE data computed from GPS data or orbit propagator
     template: |
       tle_line_1: {{tle_line_1}}
       tle_line_2: {{tle_line_2}}
     elements:
       - key: tle_line_1
-        type: 3-DataStructures/5-TLELine1.yaml
+        type: TLELine1
         itemType: ''
         description: Data for TLE line 1
         derivedFrom: ''
       - key: tle_line_2
-        type: 3-DataStructures/6-TLELine2.yaml
+        type: TLELine2
         itemType: ''
         description: Data for TLE line 2
         derivedFrom: ''
     derivedFrom:
       - 0-References/8-TwoLineElementData.yaml
-  3-DataStructures/5-TLELine1.yaml: &ref_39
+  3-DataStructures/5-TLELine1.yaml: &ref_40
     name: TLE Line 1
     purpose: Data structure for the first line of the TLE data
     template: |
@@ -644,7 +594,7 @@ elements:
         derivedFrom: ''
     derivedFrom:
       - 0-References/8-TwoLineElementData.yaml
-  3-DataStructures/6-TLELine2.yaml: &ref_40
+  3-DataStructures/6-TLELine2.yaml: &ref_41
     name: TLE Line 2
     purpose: Data structure for the second line of the TLE data
     template: |
@@ -713,9 +663,43 @@ elements:
         derivedFrom: ''
     derivedFrom:
       - 0-References/8-TwoLineElementData.yaml
-  4-Components/component.yaml: &ref_41
+  3-DataStructures/7-MissionData.yaml: &ref_42
+    name: Mission Data
+    purpose: >-
+      Defines EVR (event) elements to be recorded to the eventLog during a
+      mission mode
+    template: |
+      entry_tle: {{entry_tle}}
+      obc_sensors: {{obc_sensors}}
+      mission_data: {{mission_data}}
+      exit_tle: {{exit_tle}}
+    elements:
+      - key: entry_tle
+        type: TLE
+        itemType: ''
+        description: TLE at time of beginning of mission mode
+        derivedFrom: []
+      - key: obc_sensors
+        type: AODSSensorData
+        itemType: ''
+        description: AODS Sensor data
+        derivedFrom: []
+      - key: mission_data
+        type: string
+        itemType: ''
+        description: Data recorded during mission mode
+        derivedFrom: []
+      - key: exit_tle
+        type: TLE
+        itemType: ''
+        description: TLE at time of end of mission mode
+        derivedFrom: []
+    derivedFrom:
+      - 2-UserStories/2-ViewBeaconData.yaml
+      - 2-UserStories/4.2-RequestMissionData.yaml
+  4-Components/component.yaml: &ref_43
     name: sealion-mission-architecture
-    version: 3.0.1
+    version: 5.0.0
     description: SeaLion Mission Architecture
     license: MIT
     author: Sean Marquez <capsulecorplab@gmail.com> & contributors
@@ -781,7 +765,18 @@ elements:
             license: MIT
             author: Bhagatji Jimesh jbhag001@odu.edu & contributors
             dependencies: {}
-            components: {}
+            components:
+              dilophos:
+                name: dilophos
+                version: 0.1.0
+                description: Dilophosaurus Operating System (DilophOS)
+                license: MIT
+                author: Sean Marquez capsulecorplab@gmail.com & contributors
+                repository: https://github.com/ODU-CGA-CubeSat/dilophos.git
+                dependencies: {}
+                components: {}
+                parts: {}
+                tools: {}
             parts: {}
             tools: {}
           sealion-odu-payload:
@@ -1083,7 +1078,7 @@ elements:
     tools: {}
 package:
   name: sealion-mission-architecture
-  version: 3.0.1
+  version: 5.0.0
   description: SeaLion Mission Architecture
   keywords:
     - cubesat
@@ -1097,7 +1092,7 @@ package:
     js-yaml: ^3.12.0
     liquidjs: ^6.1.1
     minimist: ^1.2.0
-generationDate: 2/23/2022
+generationDate: 2/28/2022
 0-References:
   - *ref_0
   - *ref_1
@@ -1136,12 +1131,14 @@ generationDate: 2/23/2022
   - *ref_32
   - *ref_33
   - *ref_34
-3-DataStructures:
   - *ref_35
+3-DataStructures:
   - *ref_36
   - *ref_37
   - *ref_38
   - *ref_39
   - *ref_40
-4-Components:
   - *ref_41
+  - *ref_42
+4-Components:
+  - *ref_43

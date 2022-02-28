@@ -440,7 +440,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>SeaLion Mission Architecture</h1>
 <div class="details">
-<span id="revnumber">version v3.0.1</span>
+<span id="revnumber">version v5.0.0</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -462,13 +462,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_user_stories">User Stories</a>
 <ul class="sectlevel2">
 <li><a href="#_1_ping_satellite">1: Ping Satellite</a></li>
-<li><a href="#_2_view_satellite_health_data_packet">2: View Satellite Health Data Packet</a></li>
-<li><a href="#_2_1_listen_for_satellite_beacon">2.1: Listen for Satellite Beacon</a></li>
-<li><a href="#_3_update_beacon_rate">3: Update Beacon Rate</a></li>
-<li><a href="#_4_request_telemetry_data">4: Request Telemetry Data</a></li>
+<li><a href="#_2_view_satellite_beacon_data">2: View Satellite Beacon Data</a></li>
+<li><a href="#_3_send_request_to_set_interrupt_timer">3: Send Request to Set Interrupt Timer</a></li>
+<li><a href="#_4_request_telemetry_or_eventlog_data">4: Request Telemetry or EventLog Data</a></li>
 <li><a href="#_4_1_request_satellite_health_data">4.1: Request Satellite Health Data</a></li>
-<li><a href="#_4_2_request_satellite_aods_sensor_data">4.2: Request Satellite AODS Sensor Data</a></li>
+<li><a href="#_4_1_1_request_satellite_health_data_via_s_band_radio">4.1.1: Request Satellite Health Data via S-Band Radio</a></li>
+<li><a href="#_4_2_request_satellite_mission_data">4.2: Request Satellite Mission Data</a></li>
 <li><a href="#_5_payload_scheduler">5: Payload Scheduler</a></li>
+<li><a href="#_5_send_request_to_set_mission_mode_duration">5: Send Request to Set Mission Mode Duration</a></li>
 <li><a href="#_5_1_deployable_composite_structure_decs_payload_scheduler">5.1: Deployable Composite Structure (DeCS) Payload Scheduler</a></li>
 <li><a href="#_5_2_impedance_probe_payload_scheduler">5.2: Impedance Probe Payload Scheduler</a></li>
 <li><a href="#_5_3_multi_spectral_sensor_scheduler">5.3: Multi-spectral Sensor Scheduler</a></li>
@@ -484,11 +485,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_data_structures">Data Structures</a>
 <ul class="sectlevel2">
 <li><a href="#_satellite_health_data_packet">Satellite Health Data Packet</a></li>
-<li><a href="#_satellite_aods_ic_data">Satellite AODS IC Data</a></li>
+<li><a href="#_satellite_gps_data">Satellite GPS Data</a></li>
 <li><a href="#_satellite_aods_sensor_data">Satellite AODS Sensor Data</a></li>
 <li><a href="#_tle">TLE</a></li>
 <li><a href="#_tle_line_1">TLE Line 1</a></li>
 <li><a href="#_tle_line_2">TLE Line 2</a></li>
+<li><a href="#_mission_data">Mission Data</a></li>
 </ul>
 </li>
 <li><a href="#_finite_state_machine">Finite State Machine</a></li>
@@ -658,34 +660,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_view_satellite_health_data_packet">2: View Satellite Health Data Packet</h3>
+<h3 id="_2_view_satellite_beacon_data">2: View Satellite Beacon Data</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>As a <strong>Ground Station Operator</strong> I want to <strong>view satellite health data packet</strong> so that I can <strong>validate that satellite is operating nominally</strong>.</p>
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>view satellite beacon data (alternating between health &amp; mission data), received via UHF</strong> so that I can <strong>verify that satellite is operating nominally</strong>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_example_2">Example:</h4>
 <div class="paragraph">
-<p>View satellite health data packet to verify or validate AODS sensor &amp; GPS data is within nominal range and/or corresponds to expected orbit profile</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_2_1_listen_for_satellite_beacon">2.1: Listen for Satellite Beacon</h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>As a <strong>Ground Station Operator</strong> I want to <strong>Open ground station beacon monitor</strong> so that I can <strong>View satellite health data packet</strong>.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_example_3">Example:</h4>
-<div class="paragraph">
-<p>Open ground station beacon monitor to listen for satellite health data packet downlink</p>
+<p>View satellite beacon data (health or mission data) to verify that TLE&#8217;s correspond with expected orbit profile and/or to validate that a mission mode was successful</p>
 </div>
 </div>
 <div class="sect3">
@@ -693,39 +679,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#_2_view_satellite_health_data_packet">View Satellite Health Data Packet</a></p>
+<p><a href="#_1_1_primary_mission_objective_a1">Primary Mission Objective A1</a></p>
+</li>
+<li>
+<p><a href="#_1_3_primary_mission_objective_a3">Primary Mission Objective A3</a></p>
+</li>
+<li>
+<p><a href="#_1_5_primary_mission_objective_a5">Primary Mission Objective A5</a></p>
+</li>
+<li>
+<p><a href="#_2_1_secondary_mission_objective_b1">Secondary Mission Objective B1</a></p>
+</li>
+<li>
+<p><a href="#_2_2_secondary_mission_objective_b2">Secondary Mission Objective B2</a></p>
+</li>
+<li>
+<p><a href="#_3_1_tertiary_mission_objective_c1">Tertiary Mission Objective C1</a></p>
+</li>
+<li>
+<p><a href="#_3_2_tertiary_mission_objective_c2">Tertiary Mission Objective C2</a></p>
+</li>
+<li>
+<p><a href="#_3_3_tertiary_mission_objective_c3">Tertiary Mission Objective C3</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_update_beacon_rate">3: Update Beacon Rate</h3>
+<h3 id="_3_send_request_to_set_interrupt_timer">3: Send Request to Set Interrupt Timer</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>As a <strong>Ground Station Operator</strong> I want to <strong>Update Beacon Rate</strong> so that I can <strong>Conserve power budget</strong>.</p>
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>send a request to set count value at which interrupt timers (i.e., beacon, GPS ping, or orbit propagator) are triggered</strong> so that I can <strong>finetune parameters for attitude or orbit analysis or to conserve power</strong>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_4">Example:</h4>
+<h4 id="_example_3">Example:</h4>
 <div class="paragraph">
 <p>Update beacon rate to transmit every 30 minutes to conserve power</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_4_request_telemetry_data">4: Request Telemetry Data</h3>
+<h3 id="_4_request_telemetry_or_eventlog_data">4: Request Telemetry or EventLog Data</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>As a <strong>Ground Station Operator</strong> I want to <strong>Request satellite telemetry data packets</strong> so that I can <strong>Locally verify/validate onboard AODS computations</strong>.</p>
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>Request satellite telemetry or eventlog data</strong> so that I can <strong>verify/validate health status or mission data</strong>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_5">Example:</h4>
+<h4 id="_example_4">Example:</h4>
 <div class="paragraph">
 <p>Request satellite telemetry packets for local verification/validation of onboard AODS computations</p>
 </div>
@@ -741,9 +748,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_6">Example:</h4>
+<h4 id="_example_5">Example:</h4>
 <div class="paragraph">
-<p>Request satellite health data packet to verify or validate AODS sensors and GPS data correspond to expected attitude and/or orbit profile based on pre-computed attitude or orbit propagation model</p>
+<p>Request satellite health data packet to verify or validate TLE data corresponding to expected orbit profile based on pre-computed orbit propagation model</p>
 </div>
 </div>
 <div class="sect3">
@@ -751,25 +758,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#_4_request_telemetry_data">Request Telemetry Data</a></p>
+<p><a href="#_4_request_telemetry_or_eventlog_data">Request Telemetry or EventLog Data</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_4_2_request_satellite_aods_sensor_data">4.2: Request Satellite AODS Sensor Data</h3>
+<h3 id="_4_1_1_request_satellite_health_data_via_s_band_radio">4.1.1: Request Satellite Health Data via S-Band Radio</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>As a <strong>Ground Station Operator</strong> I want to <strong>request satellite AODS sensor data</strong> so that I can <strong>verify AODS sensor data yields nominal parameters</strong>.</p>
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>request satellite health data packet via S-band radio</strong> so that I can <strong>verify/validate AODS sensors &amp; GPS data are within nominal parameters</strong>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_7">Example:</h4>
+<h4 id="_example_6">Example:</h4>
 <div class="paragraph">
-<p>Request satellite AODS sensor data for verifying AODS sensor data corresponds with a known magnetic field, light source, and/or change in orientation w.r.t. satellites body frame of reference</p>
+<p>Request satellite health data packet via S-band radio to verify or validate TLE data corresponding to expected orbit profile based on pre-computed orbit propagation model</p>
 </div>
 </div>
 <div class="sect3">
@@ -777,7 +784,60 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#_4_request_telemetry_data">Request Telemetry Data</a></p>
+<p><a href="#_4_request_telemetry_or_eventlog_data">Request Telemetry or EventLog Data</a></p>
+</li>
+<li>
+<p><a href="#_1_2_primary_mission_objective_a2">Primary Mission Objective A2</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_2_request_satellite_mission_data">4.2: Request Satellite Mission Data</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>request satellite mission data</strong> so that I can <strong>validate in-orbit AODS and/or payload performance</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_7">Example:</h4>
+<div class="paragraph">
+<p>Request satellite mission data to verify that TLE&#8217;s &amp; AODS sensor data correspond with expected orbit profile and/or validate that a mission mode was successful</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_derived_from_5"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_4_request_telemetry_or_eventlog_data">Request Telemetry or EventLog Data</a></p>
+</li>
+<li>
+<p><a href="#_1_1_primary_mission_objective_a1">Primary Mission Objective A1</a></p>
+</li>
+<li>
+<p><a href="#_1_3_primary_mission_objective_a3">Primary Mission Objective A3</a></p>
+</li>
+<li>
+<p><a href="#_1_5_primary_mission_objective_a5">Primary Mission Objective A5</a></p>
+</li>
+<li>
+<p><a href="#_2_1_secondary_mission_objective_b1">Secondary Mission Objective B1</a></p>
+</li>
+<li>
+<p><a href="#_2_2_secondary_mission_objective_b2">Secondary Mission Objective B2</a></p>
+</li>
+<li>
+<p><a href="#_3_1_tertiary_mission_objective_c1">Tertiary Mission Objective C1</a></p>
+</li>
+<li>
+<p><a href="#_3_2_tertiary_mission_objective_c2">Tertiary Mission Objective C2</a></p>
+</li>
+<li>
+<p><a href="#_3_3_tertiary_mission_objective_c3">Tertiary Mission Objective C3</a></p>
 </li>
 </ul>
 </div>
@@ -798,6 +858,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
+<h3 id="_5_send_request_to_set_mission_mode_duration">5: Send Request to Set Mission Mode Duration</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As a <strong>Ground Station Operator</strong> I want to <strong>send a request to set mission mode duration</strong> so that I can <strong>manage time spent per mission mode</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_9">Example:</h4>
+<div class="paragraph">
+<p>send a request to set Mission Mode 1 duration to 25 minutes</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_5_1_deployable_composite_structure_decs_payload_scheduler">5.1: Deployable Composite Structure (DeCS) Payload Scheduler</h3>
 <div class="sidebarblock">
 <div class="content">
@@ -807,13 +883,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_9">Example:</h4>
+<h4 id="_example_10">Example:</h4>
 <div class="paragraph">
 <p>Schedule data recording at specfic orbital location to another orbital location for Deployable Composite Structure Payload</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_5"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_6"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -836,13 +912,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_10">Example:</h4>
+<h4 id="_example_11">Example:</h4>
 <div class="paragraph">
 <p>Schedule data recording at specfic orbital location to another orbital location for impedance probe payload</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_6"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_7"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -862,13 +938,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_11">Example:</h4>
+<h4 id="_example_12">Example:</h4>
 <div class="paragraph">
 <p>Schedule data recording at specfic orbital location to another orbital location for Multi-spectral Sensor payload</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_7"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_8"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -888,13 +964,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_12">Example:</h4>
+<h4 id="_example_13">Example:</h4>
 <div class="paragraph">
 <p>Start downlink TLE schedulered payload data once the satellite is in line of sight</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_8"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_9"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -914,7 +990,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_13">Example:</h4>
+<h4 id="_example_14">Example:</h4>
 
 </div>
 </div>
@@ -928,13 +1004,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_14">Example:</h4>
+<h4 id="_example_15">Example:</h4>
 <div class="paragraph">
 <p>Schedule data recording at specfic time interval  for Deployable Composite Structure Payload</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_9"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_10"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -957,13 +1033,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_15">Example:</h4>
+<h4 id="_example_16">Example:</h4>
 <div class="paragraph">
 <p>Schedule data recording at specfic time interval for Impedance Probe Payload</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_10"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_11"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -983,13 +1059,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_16">Example:</h4>
+<h4 id="_example_17">Example:</h4>
 <div class="paragraph">
 <p>Schedule data recording at specfic time interval for Multi-spectral Sensor Payload</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_11"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_12"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1009,13 +1085,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_17">Example:</h4>
+<h4 id="_example_18">Example:</h4>
 <div class="paragraph">
 <p>Start downlink time interval schedulered payload Data once the satellite is in line of sight</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_derived_from_12"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_13"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1029,7 +1105,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_user_stories_as_use_case_diagram">User stories as Use Case Diagram</h3>
 <div class="imageblock">
 <div class="content">
-<img src="use-case-diagram.svg" alt="use case diagram" width="781" height="1119">
+<img src="use-case-diagram.svg" alt="use case diagram" width="781" height="1175">
 </div>
 </div>
 </div>
@@ -1051,6 +1127,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre>call_sign: {{call_sign}}
 battery_health: {{battery_health}}
+temperature_battery: {{temperature_battery}}
 mode: {{mode}}
 tle_data: {{tle_data}}</pre>
 </div>
@@ -1089,6 +1166,13 @@ tle_data: {{tle_data}}</pre>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">temperature_battery</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The temperature of the battery. Units in Kelvin.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1097,7 +1181,7 @@ tle_data: {{tle_data}}</pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tle_data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3-DataStructures/4-TLE.yaml</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLE</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TLE data from orbit propogator at time of beacon.</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1105,11 +1189,11 @@ tle_data: {{tle_data}}</pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_derived_from_13"><strong>Derived From:</strong></h4>
+<h4 id="_derived_from_14"><strong>Derived From:</strong></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#_2_view_satellite_health_data_packet">View Satellite Health Data Packet</a></p>
+<p><a href="#_2_view_satellite_beacon_data">View Satellite Beacon Data</a></p>
 </li>
 <li>
 <p><a href="#_4_1_request_satellite_health_data">Request Satellite Health Data</a></p>
@@ -1119,33 +1203,21 @@ tle_data: {{tle_data}}</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_satellite_aods_ic_data">Satellite AODS IC Data</h3>
+<h3 id="_satellite_gps_data">Satellite GPS Data</h3>
 <div class="paragraph">
-<p><strong>Purpose:</strong> Data structure for satellite AODS initial conditions data packet used for attitude determination and orbit propagation</p>
+<p><strong>Purpose:</strong> Data structure for GPS data used for orbit propagation</p>
 </div>
 <div class="listingblock">
-<div class="title">Satellite AODS IC Data Template</div>
+<div class="title">Satellite GPS Data Template</div>
 <div class="content">
-<pre>imu_gyro_x: {{imu_gyro_x}}
-imu_gyro_y: {{imu_gyro_y}}
-imu_gyro_z: {{imu_gyro_z}}
-imu_magnetometer_x: {{imu_magnetometer_x}}
-imu_magnetometer_y: {{imu_magnetometer_y}}
-imu_magnetometer_z: {{imu_magnetometer_z}}
-sun_sensor_pitch_pos: {{sun_sensor_pitch_pos}}
-sun_sensor_pitch_neg: {{sun_sensor_pitch_neg}}
-sun_sensor_yaw_pos: {{sun_sensor_yaw_pos}}
-sun_sensor_yaw_neg: {{sun_sensor_yaw_neg}}
-sun_sensor_roll_pos: {{sun_sensor_roll_pos}}
-sun_sensor_roll_neg: {{sun_sensor_roll_neg}}
-time_stamp: {{time_stamp}}
+<pre>time_stamp: {{time_stamp}}
 altitude_data_GPS: {{altitude_data}}
 lattitude_GPS: {{lattitude}}
 longitude_GPS: {{longitude}}</pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Satellite AODS IC Data Specification</caption>
+<caption class="title">Table 2. Satellite GPS Data Specification</caption>
 <colgroup>
 <col style="width: 11.1111%;">
 <col style="width: 11.1111%;">
@@ -1164,130 +1236,10 @@ longitude_GPS: {{longitude}}</pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">imu_gyro_x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The angular rate of the body with to respective to the x-axis in the IMU&#8217;s reference frame.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">imu_gyro_y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The angular rate of the body with to respective to the y-axis in the IMU&#8217;s reference frame.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">imu_gyro_z</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The angular rate of the body with to respective to the z-axis in the IMU&#8217;s reference frame.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">imu_magnetometer_x</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The magnetic field strength with respective to the x-axis in the IMU&#8217;s reference frame.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">imu_magnetometer_y</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The magnetic field strength with respective to the y-axis in the IMU&#8217;s reference frame.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">imu_magnetometer_z</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The magnetic field strength with respective to the z-axis in the IMU&#8217;s reference frame.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sun_sensor_pitch_pos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sun sensor measurement with respect to positive pitch angle.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>[]</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sun_sensor_pitch_neg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sun sensor measurement with respect to negative pitch angle.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>[]</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sun_sensor_yaw_pos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sun sensor measurement with respect to positive yaw angle.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>[]</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sun_sensor_yaw_neg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sun sensor measurement with respect to negative yaw angle.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>[]</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sun_sensor_roll_pos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sun sensor measurement with respect to positive roll angle.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>[]</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sun_sensor_roll_neg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sun sensor measurement with respect to negative roll angle.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>[]</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time_stamp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Time stamp of the last transmission.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time stamp when GPS data was acquired.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -1313,10 +1265,6 @@ longitude_GPS: {{longitude}}</pre>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="_derived_from_14"><strong>Derived From:</strong></h4>
-
-</div>
 </div>
 <div class="sect2">
 <h3 id="_satellite_aods_sensor_data">Satellite AODS Sensor Data</h3>
@@ -1491,19 +1439,13 @@ time_stamp: {{time_stamp}}</pre>
 </table>
 <div class="sect3">
 <h4 id="_derived_from_15"><strong>Derived From:</strong></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#_4_2_request_satellite_aods_sensor_data">Request Satellite AODS Sensor Data</a></p>
-</li>
-</ul>
-</div>
+
 </div>
 </div>
 <div class="sect2">
 <h3 id="_tle">TLE</h3>
 <div class="paragraph">
-<p><strong>Purpose:</strong> Data structure for the TLE data</p>
+<p><strong>Purpose:</strong> Data structure for the TLE data computed from GPS data or orbit propagator</p>
 </div>
 <div class="listingblock">
 <div class="title">TLE Template</div>
@@ -1533,14 +1475,14 @@ tle_line_2: {{tle_line_2}}</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tle_line_1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3-DataStructures/5-TLELine1.yaml</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLELine1</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Data for TLE line 1</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tle_line_2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3-DataStructures/6-TLELine2.yaml</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLELine2</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Data for TLE line 2</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1834,6 +1776,83 @@ checksum: {{checksum}}</pre>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_mission_data">Mission Data</h3>
+<div class="paragraph">
+<p><strong>Purpose:</strong> Defines EVR (event) elements to be recorded to the eventLog during a mission mode</p>
+</div>
+<div class="listingblock">
+<div class="title">Mission Data Template</div>
+<div class="content">
+<pre>entry_tle: {{entry_tle}}
+obc_sensors: {{obc_sensors}}
+mission_data: {{mission_data}}
+exit_tle: {{exit_tle}}</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. Mission Data Specification</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5555%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Item Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">entry_tle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLE at time of beginning of mission mode</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">obc_sensors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AODSSensorData</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AODS Sensor data</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mission_data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data recorded during mission mode</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit_tle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLE at time of end of mission mode</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_derived_from_19"><strong>Derived From:</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_2_view_satellite_beacon_data">View Satellite Beacon Data</a></p>
+</li>
+<li>
+<p><a href="#_4_2_request_satellite_mission_data">Request Satellite Mission Data</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1841,7 +1860,7 @@ checksum: {{checksum}}</pre>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="fsm.svg" alt="fsm" width="2170" height="1175">
+<img src="fsm.svg" alt="fsm" width="1946" height="1355">
 </div>
 </div>
 </div>
@@ -1849,8 +1868,8 @@ checksum: {{checksum}}</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version v3.0.1<br>
-Last updated 2022-02-23 00:14:58 UTC
+Version v5.0.0<br>
+Last updated 2022-02-28 04:43:47 UTC
 </div>
 </div>
 </body>

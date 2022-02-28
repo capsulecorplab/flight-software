@@ -1,5 +1,5 @@
 = SeaLion Mission Architecture
-:revnumber: v3.0.1
+:revnumber: v5.0.0
 :toc: left
 
 ifndef::backend-pdf[]
@@ -132,28 +132,15 @@ Ping the satellite in order to establish UHF communication link with Virginia gr
 
 
 
-=== 2: View Satellite Health Data Packet
+=== 2: View Satellite Beacon Data
 
 ****
-As a *Ground Station Operator* I want to *view satellite health data packet* so that I can *validate that satellite is operating nominally*.
-****
-
-==== Example:
-
-View satellite health data packet to verify or validate AODS sensor & GPS data is within nominal range and/or corresponds to expected orbit profile
-
-
-
-
-=== 2.1: Listen for Satellite Beacon
-
-****
-As a *Ground Station Operator* I want to *Open ground station beacon monitor* so that I can *View satellite health data packet*.
+As a *Ground Station Operator* I want to *view satellite beacon data (alternating between health & mission data), received via UHF* so that I can *verify that satellite is operating nominally*.
 ****
 
 ==== Example:
 
-Open ground station beacon monitor to listen for satellite health data packet downlink
+View satellite beacon data (health or mission data) to verify that TLE's correspond with expected orbit profile and/or to validate that a mission mode was successful
 
 
 ==== *Derived From:*
@@ -161,16 +148,51 @@ Open ground station beacon monitor to listen for satellite health data packet do
 
 
 
-* xref:sealion-mission-architecture#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+* xref:sealion-mission-architecture#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
+
+
+
+
+* xref:sealion-mission-architecture#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
+
+
+
+
+* xref:sealion-mission-architecture#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
+
+
+
+
+* xref:sealion-mission-architecture#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
+
+
+
+
+* xref:sealion-mission-architecture#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
+
+
+
+
+* xref:sealion-mission-architecture#_3_1_tertiary_mission_objective_c1[Tertiary Mission Objective C1]
+
+
+
+
+* xref:sealion-mission-architecture#_3_2_tertiary_mission_objective_c2[Tertiary Mission Objective C2]
+
+
+
+
+* xref:sealion-mission-architecture#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
 
 
 
 
 
-=== 3: Update Beacon Rate
+=== 3: Send Request to Set Interrupt Timer
 
 ****
-As a *Ground Station Operator* I want to *Update Beacon Rate* so that I can *Conserve power budget*.
+As a *Ground Station Operator* I want to *send a request to set count value at which interrupt timers (i.e., beacon, GPS ping, or orbit propagator) are triggered* so that I can *finetune parameters for attitude or orbit analysis or to conserve power*.
 ****
 
 ==== Example:
@@ -180,10 +202,10 @@ Update beacon rate to transmit every 30 minutes to conserve power
 
 
 
-=== 4: Request Telemetry Data
+=== 4: Request Telemetry or EventLog Data
 
 ****
-As a *Ground Station Operator* I want to *Request satellite telemetry data packets* so that I can *Locally verify/validate onboard AODS computations*.
+As a *Ground Station Operator* I want to *Request satellite telemetry or eventlog data* so that I can *verify/validate health status or mission data*.
 ****
 
 ==== Example:
@@ -201,7 +223,7 @@ As a *Ground Station Operator* I want to *request satellite health data packet* 
 
 ==== Example:
 
-Request satellite health data packet to verify or validate AODS sensors and GPS data correspond to expected attitude and/or orbit profile based on pre-computed attitude or orbit propagation model
+Request satellite health data packet to verify or validate TLE data corresponding to expected orbit profile based on pre-computed orbit propagation model
 
 
 ==== *Derived From:*
@@ -209,21 +231,21 @@ Request satellite health data packet to verify or validate AODS sensors and GPS 
 
 
 
-* xref:sealion-mission-architecture#_4_request_telemetry_data[Request Telemetry Data]
+* xref:sealion-mission-architecture#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
 
 
 
 
 
-=== 4.2: Request Satellite AODS Sensor Data
+=== 4.1.1: Request Satellite Health Data via S-Band Radio
 
 ****
-As a *Ground Station Operator* I want to *request satellite AODS sensor data* so that I can *verify AODS sensor data yields nominal parameters*.
+As a *Ground Station Operator* I want to *request satellite health data packet via S-band radio* so that I can *verify/validate AODS sensors & GPS data are within nominal parameters*.
 ****
 
 ==== Example:
 
-Request satellite AODS sensor data for verifying AODS sensor data corresponds with a known magnetic field, light source, and/or change in orientation w.r.t. satellites body frame of reference
+Request satellite health data packet via S-band radio to verify or validate TLE data corresponding to expected orbit profile based on pre-computed orbit propagation model
 
 
 ==== *Derived From:*
@@ -231,7 +253,74 @@ Request satellite AODS sensor data for verifying AODS sensor data corresponds wi
 
 
 
-* xref:sealion-mission-architecture#_4_request_telemetry_data[Request Telemetry Data]
+* xref:sealion-mission-architecture#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
+
+
+
+
+* xref:sealion-mission-architecture#_1_2_primary_mission_objective_a2[Primary Mission Objective A2]
+
+
+
+
+
+=== 4.2: Request Satellite Mission Data
+
+****
+As a *Ground Station Operator* I want to *request satellite mission data* so that I can *validate in-orbit AODS and/or payload performance*.
+****
+
+==== Example:
+
+Request satellite mission data to verify that TLE's & AODS sensor data correspond with expected orbit profile and/or validate that a mission mode was successful
+
+
+==== *Derived From:*
+
+
+
+
+* xref:sealion-mission-architecture#_4_request_telemetry_or_eventlog_data[Request Telemetry or EventLog Data]
+
+
+
+
+* xref:sealion-mission-architecture#_1_1_primary_mission_objective_a1[Primary Mission Objective A1]
+
+
+
+
+* xref:sealion-mission-architecture#_1_3_primary_mission_objective_a3[Primary Mission Objective A3]
+
+
+
+
+* xref:sealion-mission-architecture#_1_5_primary_mission_objective_a5[Primary Mission Objective A5]
+
+
+
+
+* xref:sealion-mission-architecture#_2_1_secondary_mission_objective_b1[Secondary Mission Objective B1]
+
+
+
+
+* xref:sealion-mission-architecture#_2_2_secondary_mission_objective_b2[Secondary Mission Objective B2]
+
+
+
+
+* xref:sealion-mission-architecture#_3_1_tertiary_mission_objective_c1[Tertiary Mission Objective C1]
+
+
+
+
+* xref:sealion-mission-architecture#_3_2_tertiary_mission_objective_c2[Tertiary Mission Objective C2]
+
+
+
+
+* xref:sealion-mission-architecture#_3_3_tertiary_mission_objective_c3[Tertiary Mission Objective C3]
 
 
 
@@ -246,6 +335,19 @@ As a *Ground Station Operator* I want to *schedule data collection to occur at s
 ==== Example:
 
 
+
+
+
+
+=== 5: Send Request to Set Mission Mode Duration
+
+****
+As a *Ground Station Operator* I want to *send a request to set mission mode duration* so that I can *manage time spent per mission mode*.
+****
+
+==== Example:
+
+send a request to set Mission Mode 1 duration to 25 minutes
 
 
 
@@ -468,6 +570,7 @@ This section covers each data structure type in the *SeaLion Mission Architectur
 ----
 call_sign: {{call_sign}}
 battery_health: {{battery_health}}
+temperature_battery: {{temperature_battery}}
 mode: {{mode}}
 tle_data: {{tle_data}}
 
@@ -501,6 +604,17 @@ tle_data: {{tle_data}}
 
 
 
+|temperature_battery
+|float
+
+|
+
+|The temperature of the battery. Units in Kelvin.
+
+|
+
+
+
 |mode
 |integer
 
@@ -513,7 +627,7 @@ tle_data: {{tle_data}}
 
 
 |tle_data
-|3-DataStructures/4-TLE.yaml
+|TLE
 
 |
 
@@ -531,7 +645,7 @@ tle_data: {{tle_data}}
 
 
 
-* xref:sealion-mission-architecture#_2_view_satellite_health_data_packet[View Satellite Health Data Packet]
+* xref:sealion-mission-architecture#_2_view_satellite_beacon_data[View Satellite Beacon Data]
 
 
 
@@ -542,23 +656,11 @@ tle_data: {{tle_data}}
 
 
 
-=== Satellite AODS IC Data
-*Purpose:* Data structure for satellite AODS initial conditions data packet used for attitude determination and orbit propagation
+=== Satellite GPS Data
+*Purpose:* Data structure for GPS data used for orbit propagation
 
-.Satellite AODS IC Data Template
+.Satellite GPS Data Template
 ----
-imu_gyro_x: {{imu_gyro_x}}
-imu_gyro_y: {{imu_gyro_y}}
-imu_gyro_z: {{imu_gyro_z}}
-imu_magnetometer_x: {{imu_magnetometer_x}}
-imu_magnetometer_y: {{imu_magnetometer_y}}
-imu_magnetometer_z: {{imu_magnetometer_z}}
-sun_sensor_pitch_pos: {{sun_sensor_pitch_pos}}
-sun_sensor_pitch_neg: {{sun_sensor_pitch_neg}}
-sun_sensor_yaw_pos: {{sun_sensor_yaw_pos}}
-sun_sensor_yaw_neg: {{sun_sensor_yaw_neg}}
-sun_sensor_roll_pos: {{sun_sensor_roll_pos}}
-sun_sensor_roll_neg: {{sun_sensor_roll_neg}}
 time_stamp: {{time_stamp}}
 altitude_data_GPS: {{altitude_data}}
 lattitude_GPS: {{lattitude}}
@@ -566,154 +668,10 @@ longitude_GPS: {{longitude}}
 
 ----
 
-.Satellite AODS IC Data Specification
+.Satellite GPS Data Specification
 [cols="1,1,1,5,1"]
 |===
 |Field |Type |Item Type |Description |Source
-
-
-|imu_gyro_x
-|float
-
-|
-
-|The angular rate of the body with to respective to the x-axis in the IMU's reference frame.
-
-|
-
-
-
-|imu_gyro_y
-|float
-
-|
-
-|The angular rate of the body with to respective to the y-axis in the IMU's reference frame.
-
-|
-
-
-
-|imu_gyro_z
-|float
-
-|
-
-|The angular rate of the body with to respective to the z-axis in the IMU's reference frame.
-
-|
-
-
-
-|imu_magnetometer_x
-|float
-
-|
-
-|The magnetic field strength with respective to the x-axis in the IMU's reference frame.
-
-|
-
-
-
-|imu_magnetometer_y
-|float
-
-|
-
-|The magnetic field strength with respective to the y-axis in the IMU's reference frame.
-
-|
-
-
-
-|imu_magnetometer_z
-|float
-
-|
-
-|The magnetic field strength with respective to the z-axis in the IMU's reference frame.
-
-|
-
-
-
-|sun_sensor_pitch_pos
-|float
-
-|
-
-|Sun sensor measurement with respect to positive pitch angle.
-
-a|
-* []
-
-
-
-
-|sun_sensor_pitch_neg
-|float
-
-|
-
-|Sun sensor measurement with respect to negative pitch angle.
-
-a|
-* []
-
-
-
-
-|sun_sensor_yaw_pos
-|float
-
-|
-
-|Sun sensor measurement with respect to positive yaw angle.
-
-a|
-* []
-
-
-
-
-|sun_sensor_yaw_neg
-|float
-
-|
-
-|Sun sensor measurement with respect to negative yaw angle.
-
-a|
-* []
-
-
-
-
-|sun_sensor_roll_pos
-|float
-
-|
-
-|Sun sensor measurement with respect to positive roll angle.
-
-a|
-* []
-
-
-
-
-|sun_sensor_roll_neg
-|float
-
-|
-
-|Sun sensor measurement with respect to negative roll angle.
-
-a|
-* []
-
-
 
 
 |time_stamp
@@ -721,7 +679,7 @@ a|
 
 |
 
-|Time stamp of the last transmission.
+|Time stamp when GPS data was acquired.
 
 |
 
@@ -761,13 +719,6 @@ a|
 
 
 |===
-
-
-==== *Derived From:*
-
-
-
-
 
 
 
@@ -962,14 +913,12 @@ a|
 
 
 
-* xref:sealion-mission-architecture#_4_2_request_satellite_aods_sensor_data[Request Satellite AODS Sensor Data]
-
 
 
 
 
 === TLE
-*Purpose:* Data structure for the TLE data
+*Purpose:* Data structure for the TLE data computed from GPS data or orbit propagator
 
 .TLE Template
 ----
@@ -985,7 +934,7 @@ tle_line_2: {{tle_line_2}}
 
 
 |tle_line_1
-|3-DataStructures/5-TLELine1.yaml
+|TLELine1
 
 |
 
@@ -996,7 +945,7 @@ tle_line_2: {{tle_line_2}}
 
 
 |tle_line_2
-|3-DataStructures/6-TLELine2.yaml
+|TLELine2
 
 |
 
@@ -1359,6 +1308,87 @@ checksum: {{checksum}}
 
 * https://www.celestrak.com/NORAD/documentation/tle-fmt.php[Two-Line Element Data]
 
+
+
+
+
+
+=== Mission Data
+*Purpose:* Defines EVR (event) elements to be recorded to the eventLog during a mission mode
+
+.Mission Data Template
+----
+entry_tle: {{entry_tle}}
+obc_sensors: {{obc_sensors}}
+mission_data: {{mission_data}}
+exit_tle: {{exit_tle}}
+
+----
+
+.Mission Data Specification
+[cols="1,1,1,5,1"]
+|===
+|Field |Type |Item Type |Description |Source
+
+
+|entry_tle
+|TLE
+
+|
+
+|TLE at time of beginning of mission mode
+
+|
+
+
+
+|obc_sensors
+|AODSSensorData
+
+|
+
+|AODS Sensor data
+
+|
+
+
+
+|mission_data
+|string
+
+|
+
+|Data recorded during mission mode
+
+|
+
+
+
+|exit_tle
+|TLE
+
+|
+
+|TLE at time of end of mission mode
+
+|
+
+
+
+|===
+
+
+==== *Derived From:*
+
+
+
+
+* xref:sealion-mission-architecture#_2_view_satellite_beacon_data[View Satellite Beacon Data]
+
+
+
+
+* xref:sealion-mission-architecture#_4_2_request_satellite_mission_data[Request Satellite Mission Data]
 
 
 

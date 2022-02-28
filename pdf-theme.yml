@@ -27,7 +27,7 @@ header:
         *SeaLion Mission Architecture* +
     right:
       content: |
-        *v3.0.1*
+        *v5.0.0*
   verso:
     left:
       content: $header-recto-left-content
