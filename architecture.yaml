@@ -2,7 +2,7 @@ elements:
   0-References/1-AX.25Specification.yaml: &ref_0
     title: AX.25 Link Access Protocol for Amateur Packet Radio Version 2.2
     url: http://www.tapr.org/pdf/AX25.2.2.pdf
-  0-References/2-CubeSatDesignSpecificationRev.13.yaml: &ref_1
+  0-References/2-CubeSatDesignSpecificationRev13.yaml: &ref_1
     title: CubeSat Design Specification Rev. 13
     url: https://www.cubesat.org/s/cds_rev13_final2.pdf
   0-References/3-PlanetarySystemsCorporationCubeSatDesignSpecificationfor3U-6U-12U.yaml: &ref_2
@@ -52,8 +52,8 @@ elements:
   1-StakeholderNeeds/1.4-PrimaryMissionObjective-A4.yaml: &ref_11
     id: 1.4
     name: Primary Mission Objective A4
-    statement: The SeaLion mission shall adhere to CubeSat standards as per CDS Rev. 13
-    derivedFrom: 0-References/2-CubeSatDesignSpecificationRev.13.yaml
+    statement: The SeaLion mission shall adhere to CubeSat standards.
+    derivedFrom: 0-References/2-CubeSatDesignSpecificationRev13.yaml
   1-StakeholderNeeds/1.5-PrimaryMissionObjective-A5.yaml: &ref_12
     id: 1.5
     name: Primary Mission Objective A5
@@ -855,19 +855,43 @@ elements:
                 parts: {}
                 tools: {}
             parts:
-              sealion-host-computer:
-                id: sealion-host-computer
-                description: SeaLion Host Computer
+              host-computer:
+                id: host-computer
+                description: Host Computer
                 quantity: 1
                 quantityUnits: unit
                 options:
                   - dell-optiplex-work-station
                 selectedOption: 0
                 notes: ''
-                descriptionLong: 'sealion-host-computer: SeaLion Host Computer'
+                descriptionLong: 'host-computer: Host Computer'
                 descriptionSelected: >-
-                  sealion-host-computer: SeaLion Host Computer (Dell Optiplex
-                  Work Station v0.1.0)
+                  host-computer: Host Computer (Dell Optiplex Work Station
+                  v0.1.0)
+              radio-software:
+                id: radio-software
+                description: Radio Software
+                quantity: 1
+                quantityUnits: unit
+                options:
+                  - gnu-radio-software
+                selectedOption: 0
+                notes: ''
+                descriptionLong: 'radio-software: Radio Software'
+                descriptionSelected: 'radio-software: Radio Software (GNU Radio Software v0.1.0)'
+              linux-operating-system:
+                id: linux-operating-system
+                description: Linux Operating System
+                quantity: 1
+                quantityUnits: unit
+                options:
+                  - ubuntu-20.04-lts-operating-system
+                selectedOption: 0
+                notes: ''
+                descriptionLong: 'linux-operating-system: Linux Operating System'
+                descriptionSelected: >-
+                  linux-operating-system: Linux Operating System (ubuntu 20.04
+                  LTS Operating System v0.1.0)
             tools: {}
           sealion-sdr:
             name: sealion-sdr
@@ -984,7 +1008,7 @@ package:
     js-yaml: ^3.12.0
     liquidjs: ^6.1.1
     minimist: ^1.2.0
-generationDate: 3/1/2022
+generationDate: 5/31/2022
 0-References:
   - *ref_0
   - *ref_1

@@ -42,7 +42,7 @@ The SeaLion mission shall successfully transmit “mission data” defined above
 
 === 1.4: Primary Mission Objective A4
 ****
-The SeaLion mission shall adhere to CubeSat standards as per CDS Rev. 13
+The SeaLion mission shall adhere to CubeSat standards.
 **** 
 
 
