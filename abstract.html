@@ -711,11 +711,10 @@ the SeaLion CubeSat flight software team downselected m30ml for specifying the S
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 3. Satellite Health Data Packet Specification</caption>
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 55.5555%;">
-<col style="width: 11.1112%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 62.5%;">
 </colgroup>
 <thead>
 <tr>
@@ -723,35 +722,44 @@ the SeaLion CubeSat flight software team downselected m30ml for specifying the S
 <th class="tableblock halign-left valign-top">Type</th>
 <th class="tableblock halign-left valign-top">Item Type</th>
 <th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">call_sign</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">call_sign</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Identifying call sign for the Sealion mission.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">battery_health</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">battery_health</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Percent value indicating the remaining charge of the batteries.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">temperature_battery</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The temperature of the battery. Units in Kelvin.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The temperature of the battery. Units in Kelvin.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Integer value indicating current mission mode. 0 = Safe, 1 = mission mode 1, 2 = mission mode 2, 3 = mission mode 3.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tle_data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLE data from orbit propogator at time of beacon.</p></td>
+</tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="_derived_from"><strong>Derived From:</strong></h4>
+<div class="paragraph">
+<p><strong>Derived From:</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -761,7 +769,6 @@ the SeaLion CubeSat flight software team downselected m30ml for specifying the S
 <p><a href="sealion-mission-architecture.html#_4_1_request_satellite_health_data">Request Satellite Health Data</a></p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -809,7 +816,7 @@ Future actions include validating this approach as the flight software is create
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-01 01:59:20 UTC
+Last updated 2022-06-01 02:11:06 UTC
 </div>
 </div>
 </body>
