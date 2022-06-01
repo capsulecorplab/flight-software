@@ -452,9 +452,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Model-Based Systems Engineering (MBSE) is an approach to systems engineering whereby models,
-as opposed to documents,
-serve as the <em>authoritative source of truth</em> for conducting systems engineering activities,
+<p>Model-Based Systems Engineering is an approach to systems engineering
+whereby models serve as the <em>authoritative source of truth</em> for conducting systems engineering activities,
 such as the design, specification, analysis, verification &amp; validation of a sytem [<a href="#architecting_spacecraft">1</a>].</p>
 </div>
 <div class="paragraph">
@@ -463,13 +462,13 @@ in effort to facilitate a top-down design methodology from mission concept to sp
 including flight software architecture [<a href="#asundi13_cubes">2</a>].</p>
 </div>
 <div class="paragraph">
-<p>For the SeaLion Mission, a joint CubeSat mission between the Old Dominion University and Coast Guard Academy,
-the flight software team adopted an MBSE approach to flight software architecture,
-using a docs-as-code approach [<a href="#docs_as_code">3</a>],
-whereby the same tools and methodologies for managing software are also used for configuration management of documentation.
-Applying both an MBSE and docs-as-code approach means that aspects of the mission architecture,
+<p>The SeaLion Mission,
+a joint CubeSat mission between the Old Dominion University and Coast Guard Academy,
+adopted both a model-based and docs-as-code approach to developing a flight software architecture
+as a means to minimize configuration management overhead,
+while providing full traceability of requirements and component specifications of the flight software,
 such as stakeholder needs, user stories, and data structures pertaining to the CubeSat mission,
-are captured are within a model that is both human-readable and machine-queryable.</p>
+are captured are within a model that yields deduplication of content both human-readable and machine-queryable.</p>
 </div>
 <div class="paragraph">
 <p>This article presents the modeling language, tools, and technical approach used to fascilitate the configuration management, design, specification, &amp; implementation of the SeaLion mission architecture for the flight software.</p>
@@ -480,7 +479,7 @@ are captured are within a model that is both human-readable and machine-queryabl
 <h2 id="_background">Background</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Information in Systems Engineering today is
+<p>Information in a traditional systems engineering approach today is
 mostly captured informally,
 not authored based on a methodology,
 configuration managed in silo tools,
@@ -488,8 +487,23 @@ adhocly and infrequently integrated,
 not easily traceable to its provenance,
 not properly configuration managed,
 not properly changed managed,
-and not effectively shared with stakeholders.</p>
+and not effectively shared with stakeholders [<a href="#caesar_model_based_approach">3</a>].</p>
 </div>
+<div class="paragraph">
+<p>In contrast,
+a model-based systems engineering approach supports
+capturing information in a highly structured modeling language,
+authored based on a methodology,
+configuration managed in a common tool,
+highly integrated,
+traceable to its provenance,
+and sharing with stakeholders.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_goals">Goals</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The goal of the SeaLion CubeSat flight software architecture was to capture the data structures and expected behaviors of the flight software,
 such that it can be unambiguiously understood enough to be implemented,
@@ -504,7 +518,7 @@ as well as minimizing duplication of content that tends to accumulate in a docum
 <p>Furthermore,
 it was also of interest to adopt a docs-as-code approach,
 as to yield the benefits of utilizing the same tools used to configuration manage code,
-using version control tools, s.a., Git,
+using version control tools, s.a., Git [<a href="#docs_as_code">4</a>].
 for the configuration management of flight software architecture documentation,
 captured in a model-based approach.</p>
 </div>
@@ -518,15 +532,38 @@ in order to proper adopt an MBSE approach.</p>
 <p>Other considerations include overhead incurred with training the team,
 as well as technical overhead with setting up and maintaining the modeling tools.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modeling_language_tool_methodology">Modeling Language, Tool, &amp; Methodology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Mach30 modeling language is a YAML-based modeling language for defining a software architecture.
+Since YAML is a lightweight, highly-structured, human-readable, machine queryable, &amp; line-oriented markup language,
+it was ideal for document generation use cases,
+as well as use with version control tools like, Git.</p>
+</div>
+<div class="paragraph">
+<p>Mach30&#8217;s modeling language also had minimal technical overhead, as it was compatible with modern doctools,
+such as asciidoctor &amp; bibtex.</p>
+</div>
+<div class="paragraph">
+<p>Mach30&#8217;s modeling language also provided modeling elements familiar in agile software development,
+such as stakeholder needs, user stories, &amp; data structures,
+with relationship elements for defining traceability between modeling elements.</p>
+</div>
 <div class="paragraph">
 <p>For the aforementioned reasons,
-the SeaLion CubeSat flight software team downselecting the Mach30 modeling language for specifying the SeaLion CubeSat flight software architecture.</p>
+the SeaLion CubeSat flight software team downselected the Mach30 modeling language (m30ml) for specifying the SeaLion CubeSat flight software architecture [<a href="#mach30_git">5</a>].</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_stakeholder_needs">Stakeholder Needs</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The SeaLion project’s methodology documentation uses m30ml based on YAML architecture modeling tools.  The first step to build the architecture is to define the stakeholder needs.  The two stakeholders for Sealion are ODU and CGA with their respective needs categorized on priority from primary to secondary to tertiary.  These stakeholder needs are listed in the following Table 1.</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Stakeholder Needs</caption>
 <colgroup>
@@ -587,6 +624,9 @@ the SeaLion CubeSat flight software team downselecting the Mach30 modeling langu
 <div class="sect1">
 <h2 id="_user_stories">User Stories</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The SeaLion Mission Architecture’s stakeholder needs are then used to identify a series of user stories which then lead to design decisions captured in data structure and activity definitions.  These are created from the perspective of the ground station operator to define the tasks that need to be completed to satisfy the user stories.</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 2. User Stories</caption>
 <colgroup>
@@ -663,17 +703,53 @@ the SeaLion CubeSat flight software team downselecting the Mach30 modeling langu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_references">References</h2>
+<h2 id="_example_data_structure">Example Data Structure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a id="architecting_spacecraft"></a>[1] S. Friedenthal and C. Oster, <em>Architecting spacecraft with SysML</em>. .</p>
+<p>An example data structure can be derived from user stories.</p>
 </div>
-<div class="paragraph">
-<p><a id="asundi13_cubes"></a>[2] S. A. Asundi and N. G. Fitz-Coy, “CubeSat mission design based on a systems engineering approach,” in <em>2013 IEEE Aerospace Conference</em>, Mar. 2013, p. nil, doi: 10.1109/aero.2013.6496900.</p>
-</div>
-<div class="paragraph">
-<p><a id="docs_as_code"></a>[3] E. Holscher, “Docs as Code,” [Online]. Available: <a href="https://www.writethedocs.org/guide/docs-as-code/" class="bare">https://www.writethedocs.org/guide/docs-as-code/</a>.</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Satellite Health Data Packet Specification</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5555%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Item Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">call_sign</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifying call sign for the Sealion mission.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">battery_health</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Percent value indicating the remaining charge of the batteries.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">temperature_battery</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The temperature of the battery. Units in Kelvin.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer value indicating current mission mode. 0 = Safe, 1 = mission mode 1, 2 = mission mode 2, 3 = mission mode 3.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -685,7 +761,7 @@ the SeaLion CubeSat flight software team downselecting the Mach30 modeling langu
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-31 21:56:48 UTC
+Last updated 2022-06-01 00:07:14 UTC
 </div>
 </div>
 </body>
