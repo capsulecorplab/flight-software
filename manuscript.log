@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2022.10.31)  10 DEC 2022 00:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2022.10.31)  10 DEC 2022 00:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1374,8 +1374,8 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  26065 strings out of 494435
- 473351 string characters out of 6173462
- 560109 words of memory out of 5000000
+ 473353 string characters out of 6173462
+ 560137 words of memory out of 5000000
  29301 multiletter control sequences out of 15000+600000
  625041 words of font info for 162 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
@@ -1388,7 +1388,7 @@ f.enc}</usr/share/texmf/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf/
 fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/public/tex-g
 yre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
 
-Output written on manuscript.pdf (6 pages, 639301 bytes).
+Output written on manuscript.pdf (6 pages, 639290 bytes).
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams

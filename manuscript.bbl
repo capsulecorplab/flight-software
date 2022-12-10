@@ -18,32 +18,32 @@ Asundi, S.~A., and Fitz-Coy, N.~G., \enquote{CubeSat mission design based on a
 \newblock \doi{10.1109/aero.2013.6496900},
   \urlprefix\url{http://dx.doi.org/10.1109/AERO.2013.6496900}.
 
-\bibitem[{Holscher()}]{docs_as_code}
-Holscher, E., \enquote{Docs as Code,} ????
+\bibitem[{Holscher(2022)}]{docs_as_code}
+Holscher, E., \enquote{Docs as Code,} 2022.
 \newblock \urlprefix\url{https://www.writethedocs.org/guide/docs-as-code/}.
 
 \bibitem[{Academy(2022)}]{sealion_cdr}
 Academy, O. D. U. . U. S. C.~G., \enquote{Critical Design Review: Mission
   SeaLion - ODU/CGA 3U CubeSat,} , 2022.
 
-\bibitem[{cds()}]{cds_rev14}
+\bibitem[{cds(2022)}]{cds_rev14}
 \emph{CubeSat Design Specification Rev. 14}, The CubeSat Program, Cal Poly SLO,
-  ????
+  2022.
 \newblock \urlprefix\url{https://www.cubesat.org/s/CDS-REV14_1-2022-02-09.pdf}.
 
 \bibitem[{Heidt et~al.(2000)Heidt, Puig-Suari, Moore, Nakasuka, and
   Twiggs}]{heidt_new}
 Heidt, H., Puig-Suari, J., Moore, A.~S., Nakasuka, S., and Twiggs, R.~J.,
-  \enquote{CubeSat: A New Generation of Picosatellite for Education and
-  Industry Low-Cost Space Experimentation,} 2000.
+  \enquote{CubeSat - A new generation of picosatellite for education and
+  industry low-cost space experimentation,} , 08 2000.
 
-\bibitem[{Swartwout()}]{swartwout_data}
-Swartwout, M., \enquote{CubeSat Database,} , ????
+\bibitem[{Swartwout(2021)}]{swartwout_data}
+Swartwout, M., \enquote{CubeSat Database,} , 2021.
 \newblock
   \urlprefix\url{https://sites.google.com/a/slu.edu/swartwout/cubesat-database}.
 
-\bibitem[{sea()}]{sealion_mission_architecture}
-\enquote{SeaLion Mission Architecture,} ????
+\bibitem[{sea(2022)}]{sealion_mission_architecture}
+\enquote{SeaLion Mission Architecture,} 2022.
 \newblock
   \urlprefix\url{https://github.com/ODU-CGA-CubeSat/sealion-mission-architecture}.
 
@@ -56,17 +56,17 @@ David~Wagner, A. J. M. E. N. R. S.~J., So Young~Kim, \enquote{CAESAR
 Brown, B., \enquote{Model-based systems engineering: Revolution or evolution?}
   Tech. rep., 12 2011.
 
-\bibitem[{Simmons()}]{mach30_git}
-Simmons, J., \enquote{Mach30 Modeling Language,} ????
+\bibitem[{Simmons(2022)}]{mach30_git}
+Simmons, J., \enquote{Mach30 Modeling Language,} 2022.
 \newblock \urlprefix\url{https://github.com/Mach30/m30ml}.
 
-\bibitem[{Maged~Elaasar()}]{oml_language}
+\bibitem[{Maged~Elaasar(2022)}]{oml_language}
 Maged~Elaasar, N.~R., \enquote{Ontological Modeling Language: Origin and
-  Rationale,} ????
+  Rationale,} 2022.
 \newblock \urlprefix\url{http://www.opencaesar.io/oml/}.
 
-\bibitem[{Jenkinis()}]{oml_origin_and_rationale}
-Jenkinis, S., \enquote{Ontological Modeling Language 1.4,} ????
+\bibitem[{Jenkinis(2022)}]{oml_origin_and_rationale}
+Jenkinis, S., \enquote{Ontological Modeling Language 1.4,} 2022.
 \newblock
   \urlprefix\url{http://www.opencaesar.io/imce/2021/06/19/OML-Origin-and-Rationale.html}.
 
