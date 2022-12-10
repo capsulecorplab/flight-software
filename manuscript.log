@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2022.10.31)  10 DEC 2022 00:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2022.10.31)  10 DEC 2022 03:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1023,7 +1023,8 @@ File: t1ntxtlf.fd 2015/01/17 v1.0 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 27.
- (./manuscript.aux)
+ (./manuscript.aux
+(./satellite-health-data-packet-as-table.aux))
 \openout1 = `manuscript.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 27.
@@ -1321,41 +1322,51 @@ Package lettrine.sty Info: Targeted height = 16.525pt
 File: swartwout_data_graph.jpg Graphic file (type jpg)
 <use swartwout_data_graph.jpg>
 Package pdftex.def Info: swartwout_data_graph.jpg  used on input line 87.
-(pdftex.def)             Requested size: 234.8775pt x 228.10162pt.
+(pdftex.def)             Requested size: 375.80544pt x 364.96399pt.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 99.
- [2]
+ [2] [3 <./swartwout_data_graph.jpg>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 133.
- [3 <./swartwout_data_graph.jpg>]
 <ping_satellite.jpg, id=125, 531.48563pt x 120.45pt>
 File: ping_satellite.jpg Graphic file (type jpg)
 <use ping_satellite.jpg>
 Package pdftex.def Info: ping_satellite.jpg  used on input line 153.
-(pdftex.def)             Requested size: 234.8775pt x 53.23157pt.
+(pdftex.def)             Requested size: 375.80544pt x 85.16904pt.
 
 [4 <./ping_satellite.JPG>]
-<stakeholder-needs-mapping.png, id=142, 1184.425pt x 1012.78375pt>
+<stakeholder-needs-mapping.png, id=139, 1184.425pt x 1012.78375pt>
 File: stakeholder-needs-mapping.png Graphic file (type png)
 <use stakeholder-needs-mapping.png>
 Package pdftex.def Info: stakeholder-needs-mapping.png  used on input line 172.
 
-(pdftex.def)             Requested size: 234.8775pt x 200.83778pt.
-<user-stories-mapping.png, id=144, 3471.97125pt x 968.61874pt>
+(pdftex.def)             Requested size: 375.80544pt x 321.34663pt.
+<user-stories-mapping.png, id=141, 3471.97125pt x 968.61874pt>
 File: user-stories-mapping.png Graphic file (type png)
 <use user-stories-mapping.png>
 Package pdftex.def Info: user-stories-mapping.png  used on input line 183.
-(pdftex.def)             Requested size: 234.8775pt x 65.51935pt.
-<data-structures-mapping.png, id=146, 1214.5375pt x 1354.05875pt>
+(pdftex.def)             Requested size: 375.80544pt x 104.83391pt.
+<use-case-diagram.png, id=143, 815.045pt x 904.37875pt>
+File: use-case-diagram.png Graphic file (type png)
+<use use-case-diagram.png>
+Package pdftex.def Info: use-case-diagram.png  used on input line 191.
+(pdftex.def)             Requested size: 375.80544pt x 416.99905pt.
+<data-structures-mapping.png, id=145, 1214.5375pt x 1354.05875pt>
 File: data-structures-mapping.png Graphic file (type png)
 <use data-structures-mapping.png>
-Package pdftex.def Info: data-structures-mapping.png  used on input line 194.
-(pdftex.def)             Requested size: 234.8775pt x 261.83997pt.
- (./manuscript.bbl
+Package pdftex.def Info: data-structures-mapping.png  used on input line 202.
+(pdftex.def)             Requested size: 375.80544pt x 418.96875pt.
+ [5 <./stakeholder-needs-mapping.png (PNG copy)>]
+[6 <./user-stories-mapping.png (PNG copy)> <./use-case-diagram.png (PNG copy)>]
+[7 <./data-structures-mapping.png (PNG copy)>]
+\openout2 = `satellite-health-data-packet-as-table.aux'.
+
+
+(./satellite-health-data-packet-as-table.tex) [8
+
+] (./manuscript.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 9.0pt on input line 11.
- [5 <./stakeholder-needs-mapping.png (PNG copy)> <./user-stories-mapping.png (P
-NG copy)>]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.0pt on input line 18.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
@@ -1363,23 +1374,26 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 9.0pt on input line 18.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
- [6 <./data-structures-mapping.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
- (./manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
+ [9
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
+
+(./manuscript.aux (./satellite-health-data-packet-as-table.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 224.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 224.
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: DD2E2790FDB15CE9676956251174A2F2;1009.
  ) 
 Here is how much of TeX's memory you used:
- 26063 strings out of 494435
- 473309 string characters out of 6173462
- 560137 words of memory out of 5000000
- 29301 multiletter control sequences out of 15000+600000
- 624955 words of font info for 161 fonts, out of 8000000 for 9000
+ 26085 strings out of 494435
+ 473891 string characters out of 6173462
+ 560772 words of memory out of 5000000
+ 29307 multiletter control sequences out of 15000+600000
+ 625127 words of font info for 163 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 60i,8n,94p,1202b,894s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,94p,1202b,873s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-sc.enc}{/usr/
 share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-
 dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texmf/fonts/enc/dvips/te
@@ -1388,10 +1402,10 @@ f.enc}</usr/share/texmf/fonts/type1/public/tex-gyre/qtmb.pfb></usr/share/texmf/
 fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/public/tex-g
 yre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
 
-Output written on manuscript.pdf (6 pages, 639317 bytes).
+Output written on manuscript.pdf (9 pages, 713369 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 38554 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 220 PDF objects out of 1000 (max. 8388607)
+ 196 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 38559 words of extra memory for PDF output out of 42996 (max. 10000000)
 

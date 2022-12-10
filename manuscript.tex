@@ -84,7 +84,7 @@ University groups especially are a large contributor in the overall number of la
 
 \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=.5\textwidth]{swartwout_data_graph}
+    \includegraphics[width=.8\textwidth]{swartwout_data_graph}
     \caption{Nanosatellite launch data provided by M. Swartwout \cite{swartwout_data}.}
     \label{swartwout_data_graph}
 \end{figure}
@@ -150,7 +150,7 @@ M30ML is a language for modeling an architecture YAML-based modeling. Since YAML
 
 \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=.5\textwidth]{ping_satellite}
+    \includegraphics[width=.8\textwidth]{ping_satellite}
     \caption{An example YAML file for a user story.}
     \label{user_story}
 \end{figure}
@@ -169,7 +169,7 @@ The SeaLion project's methodology documentation uses M30ML based on YAML archite
 
 \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=.5\textwidth]{stakeholder-needs-mapping}
+    \includegraphics[width=.8\textwidth]{stakeholder-needs-mapping}
     \caption{a view describing a mapping of stakeholders to stakeholder needs as a UML diagram}
     \label{stakeholder-needs-mapping}
 \end{figure}
@@ -180,21 +180,37 @@ The SeaLion Mission Architecture's stakeholder needs are then used to identify a
 
 \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=.5\textwidth]{user-stories-mapping}
+    \includegraphics[width=.8\textwidth]{user-stories-mapping}
     \caption{a view describing a mapping of stakeholder needs to their derived user stories as a UML diagram}
     \label{user-stories-mapping}
 \end{figure}
 
+Alternative views can also be rendered from a model. For example, the user stories can also be rendered as a use case diagram \ref{use-case-diagram}.
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=.8\textwidth]{use-case-diagram}
+    \caption{a view describing user stories as a usecase diagram}
+    \label{use-case-diagram}
+\end{figure}
+
 \subsection{Example Data Structure}
 
-An example data structure can be derived from user stories as presented in figure \ref{data-structures-mapping}.
+A colletion of data structures can be derived from user stories as presented in figure \ref{data-structures-mapping}.
 
 \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=.5\textwidth]{data-structures-mapping}
+    \includegraphics[width=.8\textwidth]{data-structures-mapping}
     \caption{a view describing a mapping of user stories to their derived data structures as a UML diagram}
     \label{data-structures-mapping}
 \end{figure}
+
+Because models are both human and machine readable, thus, a specification document can also be generated. For example, the following is a table rendering of the data structure of the satellite health data packet:
+
+\begin{center}
+\include{satellite-health-data-packet-as-table}
+\end{center}
+
+This manuscript document itself was also modeled and generated using the m30ml modeling language and toolchain.
 
 
 \section{Conclusion}
