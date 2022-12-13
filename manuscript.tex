@@ -17,11 +17,11 @@
 \title{Model-Based CubeSat Flight-Software Architecture using a Docs-as-Code Approach}
 
 
-\author{Sean Marquez and Kevin Chiu }
-\affil{Old Dominion University, Norfolk, VA, 23529}
+\author{Sean Marquez and Kevin Chiu\footnote{Graduate Student, Mechanical and Aerospace Engineering.} }
+\affil{Old Dominion University, Norfolk, VA, 23529, USA}
 
-\author{Sharan Asundi, Ph.D.\footnote{Assistant Professor, Department of Mechanical \& Aerospace Engineering, Old Dominion University} }
-\affil{Old Dominion University, Norfolk, VA, 23529}
+\author{Sharanabasaweshwara Asundi\footnote{Assistant Professor, Mechanical and Aerospace Engineering, and AIAA Professional Member.} }
+\affil{Old Dominion University, Norfolk, VA, 23529, USA}
 
 
 \begin{document}
@@ -192,7 +192,10 @@ Alternative views can also be rendered from a model. For example, the user stori
     \caption{a view describing user stories as a usecase diagram}
     \label{use-case-diagram}
 \end{figure}
-
+\\
+\\
+\\
+\\
 \subsection{Example Data Structure}
 
 A colletion of data structures can be derived from user stories as presented in figure \ref{data-structures-mapping}.
@@ -204,11 +207,14 @@ A colletion of data structures can be derived from user stories as presented in 
     \label{data-structures-mapping}
 \end{figure}
 
-Because models are both human and machine readable, thus, a specification document can also be generated. For example, the following is a table rendering of the data structure of the satellite health data packet:
+Because models are both human and machine readable, thus, a specification document can also be generated. For example, the following table \ref{satellite-health-data-packet} rendering of the data structure of the satellite health data packet:
 
-\begin{center}
-\include{satellite-health-data-packet-as-table}
-\end{center}
+\begin{table}
+    \centering
+    \include{satellite-health-data-packet-as-table}
+    \caption{Satellite Health Data Packet}
+    \label{satellite-health-data-packet}
+\end{table}
 
 This manuscript document itself was also modeled and generated using the m30ml modeling language and toolchain.
 
